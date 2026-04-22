@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="معرض صور فلور دماند - إبداعاتنا من الحلويات">
+    <title>معرض الصور | فلور دماند</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { gold: { 500: '#B8860B', 600: '#A67C00' }, cream: { 100: '#FDF8F3' } } } }
+        }
+    </script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; }
+        .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .lightbox.active { opacity: 1; pointer-events: all; }
+        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; }
+    </style>
+</head>
+<body class="font-arabic bg-cream-100 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index-ar.html" class="flex flex-col items-center">
+                    <span class="font-display text-2xl md:text-3xl font-semibold text-gold-600">Fleur d'Amande</span>
+                    <span class="text-xs text-gray-500">حلويات فاخرة</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="../index-ar.html" class="text-gray-600 hover:text-gold-600">الرئيسية</a>
+                    <a href="about-ar.html" class="text-gray-600 hover:text-gold-600">من نحن</a>
+                    <a href="products-ar.html" class="text-gray-600 hover:text-gold-600">منتجاتنا</a>
+                    <a href="gallery-ar.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">معرض الصور</a>
+                    <a href="contact-ar.html" class="text-gray-600 hover:text-gold-600">اتصل بنا</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-2 space-x-reverse">
+                    <a href="gallery-ar.html" class="px-3 py-1 text-sm text-white bg-gold-600 rounded-full">عربي</a>
+                    <a href="gallery.html" class="px-3 py-1 text-sm text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white">FR</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t px-4 py-4 space-y-3">
+            <a href="../index-ar.html" class="block py-2">الرئيسية</a>
+            <a href="about-ar.html" class="block py-2">من نحن</a>
+            <a href="products-ar.html" class="block py-2">منتجاتنا</a>
+            <a href="gallery-ar.html" class="block py-2 text-gold-600">معرض الصور</a>
+            <a href="contact-ar.html" class="block py-2">اتصل بنا</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-gold-400 font-medium tracking-widest uppercase mb-3">إبداعاتنا</p>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">معرض الصور</h1>
+            <p class="text-xl text-gray-300">لمحة عن أجمل إبداعاتنا</p>
+        </div>
+    </header>
+
+    <!-- Gallery Filter -->
+    <section class="py-8 bg-white sticky top-20 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="filter-btn active px-6 py-2 rounded-full font-medium bg-gold-600 text-white" data-filter="all">الكل</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white" data-filter="cakes">الكيك</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white" data-filter="pastries">المعجنات</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white" data-filter="sweets">الحلويات</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border-2 border-gold-600 text-gold-600 hover:bg-gold-600 hover:text-white" data-filter="events">المناسبات</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-16 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=500&fit=crop" alt="كيك" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="pastries">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&h=500&fit=crop" alt="كرواسون" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="sweets">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500&h=500&fit=crop" alt="ماكرون" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=500&fit=crop" alt="كيك مناسبات" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1535141192574-5d4897c12f4f?w=500&h=500&fit=crop" alt="تشيز كيك" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="pastries">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=500&fit=crop" alt="خبز" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="sweets">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=500&h=500&fit=crop" alt="إكلير" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=500&h=500&fit=crop" alt="كيك زفاف" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="sweets">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&h=500&fit=crop" alt="تارت" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="pastries">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=500&h=500&fit=crop" alt="بان أو شوكولا" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&h=500&fit=crop" alt="كيك فراولة" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
+                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=500&h=500&fit=crop" alt="بوفيه" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram CTA -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">تابعنا</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">على انستغرام</h2>
+            <p class="text-gray-600 text-lg mb-8">شاهد آخر إبداعاتنا وعروضنا الخاصة</p>
+            <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="gold-gradient text-white px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:shadow-2xl transition-all">
+                <i class="fab fa-instagram text-2xl"></i> @fleurdamande1
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-gold-500 mb-4">Fleur d'Amande</h3>
+                    <p class="text-gray-400 mb-6">التميز الحرفي منذ سنوات.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600"><i class="fas fa-map-marker-alt text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index-ar.html" class="text-gray-400 hover:text-gold-500">الرئيسية</a></li>
+                        <li><a href="about-ar.html" class="text-gray-400 hover:text-gold-500">من نحن</a></li>
+                        <li><a href="products-ar.html" class="text-gray-400 hover:text-gold-500">منتجاتنا</a></li>
+                        <li><a href="gallery-ar.html" class="text-gray-400 hover:text-gold-500">معرض الصور</a></li>
+                        <li><a href="contact-ar.html" class="text-gray-400 hover:text-gold-500">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">أوقات العمل</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between"><span>الإثنين - السبت</span><span class="text-gold-500">8:00 - 20:00</span></li>
+                        <li class="flex justify-between"><span>الأحد</span><span class="text-gold-500">9:00 - 18:00</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">تواصل معنا</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-gold-500 w-6"></i><a href="tel:+212671052345" class="hover:text-gold-500">0671 052 345</a></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-gold-500 w-6"></i>الرباط، المغرب</li>
+                        <li class="flex items-center text-gray-400"><i class="fab fa-instagram text-gold-500 w-6"></i><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500">@fleurdamande1</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500"><p>&copy; 2024 Fleur d'Amande. جميع الحقوق محفوظة.</p><p class="mt-2">تم الإنشاء والتصميم بواسطة <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p></div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox"><button class="absolute top-4 left-4 text-white text-4xl">&times;</button><img src="" alt=""></div>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => { b.classList.remove('bg-gold-600', 'text-white', 'active'); b.classList.add('border-2', 'border-gold-600', 'text-gold-600'); });
+                this.classList.add('bg-gold-600', 'text-white', 'active'); this.classList.remove('border-2', 'border-gold-600', 'text-gold-600');
+                const filter = this.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) { item.style.display = 'block'; } else { item.style.display = 'none'; }
+                });
+            });
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() { lightboxImg.src = this.querySelector('img').src; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; });
+        });
+        lightbox.addEventListener('click', function(e) { if (e.target === lightbox || e.target.tagName === 'BUTTON') { lightbox.classList.remove('active'); document.body.style.overflow = ''; } });
+    </script>
+</body>
+</html>

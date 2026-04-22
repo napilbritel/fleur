@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez nos créations pâtissières artisanales - Fleur d'Amande Rabat">
+    <title>Nos Créations | Fleur d'Amande</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 50: '#FBF9F3', 100: '#F5EFE0', 200: '#E8DCC3', 300: '#D4C4A0', 400: '#C9A962', 500: '#B8860B', 600: '#A67C00', 700: '#8B6914', 800: '#705516', 900: '#5C4614' },
+                        cream: { 50: '#FFFEFB', 100: '#FDF8F3', 200: '#FAF3EA', 300: '#F5EBE0', 400: '#EBE0D2' }
+                    },
+                    fontFamily: { 'display': ['Cormorant Garamond', 'serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(184, 134, 11, 0.3); }
+        .img-zoom { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .group:hover .img-zoom { transform: scale(1.1); }
+        .badge { position: absolute; top: 16px; right: 16px; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-new { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; }
+        .badge-popular { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; }
+        .badge-special { background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); color: white; }
+        .price-tag { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 100%); }
+        .section-divider { background: linear-gradient(90deg, transparent, #B8860B 20%, #B8860B 80%, transparent); height: 1px; }
+        .floating-badge { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    </style>
+</head>
+<body class="font-body bg-cream-100 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex flex-col items-center">
+                    <span class="font-display text-2xl md:text-3xl font-semibold text-gold-600">Fleur d'Amande</span>
+                    <span class="text-xs text-gray-500 tracking-widest uppercase">Pâtisserie Artisanale</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-gold-600 transition-colors">Accueil</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gold-600 transition-colors">À Propos</a>
+                    <a href="products.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">Nos Créations</a>
+                    <a href="gallery.html" class="text-gray-600 hover:text-gold-600 transition-colors">Galerie</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gold-600 transition-colors">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="products.html" class="px-3 py-1 text-sm font-medium text-white bg-gold-600 rounded-full">FR</a>
+                    <a href="products-ar.html" class="px-3 py-1 text-sm font-medium text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white transition-all">عربي</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="../index.html" class="block py-2 text-gray-600">Accueil</a>
+                <a href="about.html" class="block py-2 text-gray-600">À Propos</a>
+                <a href="products.html" class="block py-2 text-gold-600 font-medium">Nos Créations</a>
+                <a href="gallery.html" class="block py-2 text-gray-600">Galerie</a>
+                <a href="contact.html" class="block py-2 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="relative pt-20 min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center;"></div>
+        <div class="relative z-10 text-center px-4 py-20">
+            <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/30 rounded-full px-6 py-2 mb-6">
+                <i class="fas fa-star text-gold-400"></i>
+                <span class="text-gold-300 text-sm font-medium tracking-wide">Excellence Artisanale</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6">Nos Créations</h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10">Une collection exquise de pâtisseries artisanales, préparées avec passion chaque jour</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#viennoiseries" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"><i class="fas fa-bread-slice mr-2"></i>Viennoiseries</a>
+                <a href="#gateaux" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"><i class="fas fa-birthday-cake mr-2"></i>Gâteaux</a>
+                <a href="#patisseries" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"><i class="fas fa-cookie mr-2"></i>Pâtisseries</a>
+                <a href="#marocain" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"><i class="fas fa-moon mr-2"></i>Marocain</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Viennoiseries Section -->
+    <section id="viennoiseries" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center shadow-lg"><i class="fas fa-bread-slice text-white text-2xl"></i></div>
+                        <div>
+                            <p class="text-gold-600 font-medium tracking-widest uppercase text-sm">Fraîches du Jour</p>
+                            <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900">Viennoiseries</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 max-w-xl">Nos viennoiseries sont préparées chaque matin avec du beurre français AOP pour un feuilletage parfait.</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-clock text-gold-500"></i>
+                    <span>Disponibles dès 7h00</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=400&fit=crop" alt="Croissant" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-popular floating-badge"><i class="fas fa-fire mr-1"></i>Populaire</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Croissant Pur Beurre</h3>
+                        <p class="text-gray-600 text-sm mb-4">Feuilleté doré au beurre français AOP, croustillant à souhait</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">8 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=400&h=400&fit=crop" alt="Pain au chocolat" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Pain au Chocolat</h3>
+                        <p class="text-gray-600 text-sm mb-4">Deux barres de chocolat noir enveloppées de pâte feuilletée</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">10 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=400&h=400&fit=crop" alt="Croissant aux amandes" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-special floating-badge"><i class="fas fa-gem mr-1"></i>Signature</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Croissant aux Amandes</h3>
+                        <p class="text-gray-600 text-sm mb-4">Garni de crème d'amande et parsemé d'amandes effilées</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">15 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop" alt="Brioche" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Brioche Dorée</h3>
+                        <p class="text-gray-600 text-sm mb-4">Moelleuse et légèrement sucrée, parfaite pour le petit-déjeuner</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">12 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=400&fit=crop" alt="Chausson aux pommes" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Chausson aux Pommes</h3>
+                        <p class="text-gray-600 text-sm mb-4">Compote de pommes maison dans une pâte feuilletée croustillante</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">14 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1619221882220-947b3d3c8861?w=400&h=400&fit=crop" alt="Pain aux raisins" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-new floating-badge"><i class="fas fa-sparkles mr-1"></i>Nouveau</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Pain aux Raisins</h3>
+                        <p class="text-gray-600 text-sm mb-4">Spirale feuilletée garnie de crème pâtissière et raisins secs</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">12 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop" alt="Baguette" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Baguette Tradition</h3>
+                        <p class="text-gray-600 text-sm mb-4">Croûte dorée et mie alvéolée, recette traditionnelle française</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">6 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="card-hover bg-cream-50 rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=400&h=400&fit=crop" alt="Pain complet" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Pain Complet aux Graines</h3>
+                        <p class="text-gray-600 text-sm mb-4">Riche en fibres, aux graines de lin, tournesol et sésame</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">18 DH</span>
+                            <button class="w-10 h-10 rounded-full bg-gold-100 text-gold-600 hover:bg-gold-600 hover:text-white transition-all"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Gâteaux Section -->
+    <section id="gateaux" class="py-24 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg"><i class="fas fa-birthday-cake text-white text-2xl"></i></div>
+                        <div>
+                            <p class="text-rose-600 font-medium tracking-widest uppercase text-sm">Créations Exclusives</p>
+                            <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900">Gâteaux</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 max-w-xl">Des créations uniques pour vos moments spéciaux. Commandes personnalisées sur demande.</p>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 bg-rose-100 text-rose-600 rounded-full font-medium hover:bg-rose-600 hover:text-white transition-all">
+                    <i class="fas fa-magic"></i>
+                    <span>Commander sur mesure</span>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Gâteau 1 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop" alt="Gâteau chocolat" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-popular floating-badge"><i class="fas fa-crown mr-1"></i>Best-seller</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Forêt Noire</h3>
+                        <p class="text-gray-600 text-sm mb-4">Chocolat, cerises amarena et crème chantilly légère</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">180 DH</span>
+                            <span class="text-xs text-gray-500">6-8 parts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 2 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=400&fit=crop" alt="Fraisier" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Fraisier</h3>
+                        <p class="text-gray-600 text-sm mb-4">Génoise légère, fraises fraîches et crème mousseline vanille</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">200 DH</span>
+                            <span class="text-xs text-gray-500">6-8 parts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 3 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=400&h=400&fit=crop" alt="Cheesecake" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-new floating-badge"><i class="fas fa-sparkles mr-1"></i>Nouveau</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Cheesecake New York</h3>
+                        <p class="text-gray-600 text-sm mb-4">Onctueux et crémeux avec sa base de spéculoos</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">160 DH</span>
+                            <span class="text-xs text-gray-500">8 parts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 4 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=400&fit=crop" alt="Tiramisu" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Tiramisu</h3>
+                        <p class="text-gray-600 text-sm mb-4">Biscuits imbibés de café, mascarpone et cacao</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">150 DH</span>
+                            <span class="text-xs text-gray-500">6-8 parts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 5 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=400&h=400&fit=crop" alt="Gâteau de mariage" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-special floating-badge"><i class="fas fa-heart mr-1"></i>Mariage</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Wedding Cake</h3>
+                        <p class="text-gray-600 text-sm mb-4">Gâteaux de mariage personnalisés selon vos envies</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gold-600 font-semibold">Sur devis</span>
+                            <a href="contact.html" class="text-xs text-gold-600 underline">Nous contacter</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 6 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=400&fit=crop" alt="Gâteau anniversaire" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Gâteau d'Anniversaire</h3>
+                        <p class="text-gray-600 text-sm mb-4">Décorations personnalisées, tous thèmes et âges</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">À partir de 250 DH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 7 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=400&fit=crop" alt="Opera" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Opéra</h3>
+                        <p class="text-gray-600 text-sm mb-4">Biscuit joconde, ganache chocolat et crème au café</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">190 DH</span>
+                            <span class="text-xs text-gray-500">8 parts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gâteau 8 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=400&h=400&fit=crop" alt="Tarte citron" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Tarte au Citron Meringuée</h3>
+                        <p class="text-gray-600 text-sm mb-4">Crème citron acidulée et meringue italienne torchée</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">140 DH</span>
+                            <span class="text-xs text-gray-500">6 parts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Pâtisseries Fines Section -->
+    <section id="patisseries" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg"><i class="fas fa-cookie text-white text-2xl"></i></div>
+                        <div>
+                            <p class="text-purple-600 font-medium tracking-widest uppercase text-sm">Délices Individuels</p>
+                            <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900">Pâtisseries Fines</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 max-w-xl">Nos pâtisseries individuelles, parfaites pour une pause gourmande ou un plateau de desserts.</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Pâtisserie 1 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=300&h=300&fit=crop" alt="Macarons" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-popular floating-badge text-xs"><i class="fas fa-star mr-1"></i>Top</span>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Macarons</h3>
+                        <p class="text-gray-500 text-xs mb-3">Assortiment 6 parfums</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">60 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 2 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=300&h=300&fit=crop" alt="Éclair" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Éclair</h3>
+                        <p class="text-gray-500 text-xs mb-3">Chocolat, café ou vanille</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">25 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 3 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&h=300&fit=crop" alt="Tarte aux fruits" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Tartelette Fruits</h3>
+                        <p class="text-gray-500 text-xs mb-3">Fruits frais de saison</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">35 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 4 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=300&h=300&fit=crop" alt="Mille-feuille" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-special floating-badge text-xs"><i class="fas fa-gem mr-1"></i>Chef</span>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Mille-feuille</h3>
+                        <p class="text-gray-500 text-xs mb-3">Vanille Bourbon</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">30 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 5 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=300&h=300&fit=crop" alt="Paris-Brest" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Paris-Brest</h3>
+                        <p class="text-gray-500 text-xs mb-3">Crème pralinée noisette</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">35 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 6 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=300&h=300&fit=crop" alt="Fondant chocolat" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Fondant Chocolat</h3>
+                        <p class="text-gray-500 text-xs mb-3">Cœur coulant</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">28 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 7 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=300&fit=crop" alt="Religieuse" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Religieuse</h3>
+                        <p class="text-gray-500 text-xs mb-3">Chocolat ou café</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">28 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 8 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559622214-f8a9850965bb?w=300&h=300&fit=crop" alt="Profiteroles" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Profiteroles</h3>
+                        <p class="text-gray-500 text-xs mb-3">Sauce chocolat chaud</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">40 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 9 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=300&h=300&fit=crop" alt="Chouquettes" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-new floating-badge text-xs"><i class="fas fa-child mr-1"></i>Kids</span>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Chouquettes</h3>
+                        <p class="text-gray-500 text-xs mb-3">Sachet de 10 pièces</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">20 DH</span>
+                    </div>
+                </div>
+
+                <!-- Pâtisserie 10 -->
+                <div class="card-hover bg-cream-50 rounded-2xl overflow-hidden shadow-lg group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop" alt="Cannelés" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-display text-lg font-bold text-gray-900 mb-1">Cannelés Bordelais</h3>
+                        <p class="text-gray-500 text-xs mb-3">Rhum et vanille</p>
+                        <span class="price-tag text-white px-3 py-1 rounded-full text-xs font-semibold">15 DH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Pâtisseries Marocaines Section -->
+    <section id="marocain" class="py-24 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg"><i class="fas fa-moon text-white text-2xl"></i></div>
+                        <div>
+                            <p class="text-amber-600 font-medium tracking-widest uppercase text-sm">Tradition Marocaine</p>
+                            <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900">Pâtisseries Orientales</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 max-w-xl">Saveurs authentiques du Maroc, préparées selon les recettes traditionnelles transmises de génération en génération.</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-gift text-amber-500"></i>
+                    <span>Coffrets cadeaux disponibles</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Marocain 1 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=400&fit=crop" alt="Cornes de gazelle" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-popular floating-badge"><i class="fas fa-star mr-1"></i>Incontournable</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Cornes de Gazelle</h3>
+                        <p class="text-gray-600 text-sm mb-4">Pâte d'amande parfumée à la fleur d'oranger</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">150 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 2 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=400&h=400&fit=crop" alt="Chebakia" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Chebakia</h3>
+                        <p class="text-gray-600 text-sm mb-4">Fleur de miel aux graines de sésame</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">120 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 3 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=400&h=400&fit=crop" alt="Briouates" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Briouates aux Amandes</h3>
+                        <p class="text-gray-600 text-sm mb-4">Croustillantes au miel et aux amandes grillées</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">140 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 4 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558312657-b2dead03d494?w=400&h=400&fit=crop" alt="Ghriba" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-special floating-badge"><i class="fas fa-heart mr-1"></i>Ramadan</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Ghriba</h3>
+                        <p class="text-gray-600 text-sm mb-4">Biscuits fondants aux amandes ou sésame</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">100 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 5 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=400&h=400&fit=crop" alt="Fekkas" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Fekkas</h3>
+                        <p class="text-gray-600 text-sm mb-4">Croquants aux amandes et raisins secs</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">80 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 6 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=400&h=400&fit=crop" alt="Sellou" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Sellou / Sfouf</h3>
+                        <p class="text-gray-600 text-sm mb-4">Mélange énergétique aux amandes et sésame</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">120 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 7 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=400&fit=crop" alt="M'hancha" class="w-full h-full object-cover img-zoom">
+                        <span class="badge badge-new floating-badge"><i class="fas fa-sparkles mr-1"></i>Nouveau</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">M'hancha</h3>
+                        <p class="text-gray-600 text-sm mb-4">Serpent aux amandes enroulé et doré</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">180 DH/pièce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marocain 8 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=400&fit=crop" alt="Baklava" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Baklava Marocain</h3>
+                        <p class="text-gray-600 text-sm mb-4">Feuilles filo, miel et noix parfumées</p>
+                        <div class="flex items-center justify-between">
+                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">160 DH/kg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gift Box CTA -->
+            <div class="mt-16 bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl p-8 md:p-12 text-white text-center">
+                <h3 class="font-display text-3xl md:text-4xl font-bold mb-4">Coffrets Cadeaux</h3>
+                <p class="text-amber-100 text-lg mb-8 max-w-2xl mx-auto">Composez votre assortiment de pâtisseries marocaines pour offrir ou pour vous faire plaisir.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="bg-white/20 backdrop-blur rounded-2xl px-6 py-4">
+                        <span class="block text-2xl font-bold">250 DH</span>
+                        <span class="text-amber-200 text-sm">Coffret 500g</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-2xl px-6 py-4">
+                        <span class="block text-2xl font-bold">450 DH</span>
+                        <span class="text-amber-200 text-sm">Coffret 1kg</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-2xl px-6 py-4">
+                        <span class="block text-2xl font-bold">850 DH</span>
+                        <span class="text-amber-200 text-sm">Coffret 2kg</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-white text-amber-600 rounded-full font-semibold hover:shadow-2xl transition-all">
+                    <i class="fas fa-gift"></i>
+                    <span>Commander un coffret</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <i class="fas fa-phone-alt text-gold-500 text-4xl mb-6"></i>
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Commandez Maintenant</h2>
+            <p class="text-gray-300 text-lg mb-8">Appelez-nous ou passez nous voir pour passer votre commande</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:+212671052345" class="gold-gradient text-white px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:shadow-2xl transition-all">
+                    <i class="fas fa-phone"></i> 0671 052 345
+                </a>
+                <a href="https://wa.me/212671052345" target="_blank" class="bg-green-500 text-white px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-green-600 hover:shadow-2xl transition-all">
+                    <i class="fab fa-whatsapp text-xl"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-gold-500 mb-4">Fleur d'Amande</h3>
+                    <p class="text-gray-400 mb-6">L'excellence artisanale depuis des années.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fas fa-map-marker-alt text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Liens Rapides</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-gold-500 transition-colors">Accueil</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold-500 transition-colors">À Propos</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-gold-500 transition-colors">Nos Créations</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-gold-500 transition-colors">Galerie</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-gold-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Horaires</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between"><span>Lun - Sam</span><span class="text-gold-500">8h00 - 20h00</span></li>
+                        <li class="flex justify-between"><span>Dimanche</span><span class="text-gold-500">9h00 - 18h00</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-gold-500 w-6"></i><a href="tel:+212671052345" class="hover:text-gold-500 transition-colors">0671 052 345</a></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-gold-500 w-6"></i>Rabat, Maroc</li>
+                        <li class="flex items-center text-gray-400"><i class="fab fa-instagram text-gold-500 w-6"></i><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500 transition-colors">@fleurdamande1</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 Fleur d'Amande. Tous droits réservés.</p>
+                <p class="mt-2">Créé et designé par <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

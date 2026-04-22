@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="فلور دماند - حلويات فاخرة في الرباط. اكتشفوا إبداعاتنا الراقية.">
+    <title>فلور دماند | حلويات فاخرة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 50: '#FBF9F3', 100: '#F5EFE0', 200: '#E8DCC3', 300: '#D4C4A0', 400: '#C9A962', 500: '#B8860B', 600: '#A67C00', 700: '#8B6914', 800: '#705516', 900: '#5C4614' },
+                        cream: { 50: '#FFFEFB', 100: '#FDF8F3', 200: '#FAF3EA', 300: '#F5EBE0', 400: '#EBE0D2' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Tajawal', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%); }
+        .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .card-hover { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-15px) scale(1.02); box-shadow: 0 30px 60px -15px rgba(184, 134, 11, 0.4); }
+        .img-zoom { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .group:hover .img-zoom { transform: scale(1.15); }
+        .ribbon { position: absolute; top: 20px; right: -35px; transform: rotate(45deg); width: 150px; text-align: center; padding: 5px 0; font-size: 12px; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-cream-100 text-gray-800">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white py-2 text-sm hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span><i class="fas fa-clock text-gold-500 ml-2"></i>الإثنين-السبت: 8-20 | الأحد: 9-18</span>
+                <span><i class="fas fa-phone text-gold-500 ml-2"></i><a href="tel:+212671052345" class="hover:text-gold-400">0671 052 345</a></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-400"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/212671052345" target="_blank" class="hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="hover:text-gold-400"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 md:top-8 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg md:mx-4 lg:mx-8 md:rounded-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index-ar.html" class="flex flex-col items-center group">
+                    <span class="text-2xl md:text-3xl font-semibold text-gold-600 tracking-wide group-hover:text-gold-700 transition-colors">Fleur d'Amande</span>
+                    <span class="text-xs text-gray-500">حلويات فاخرة</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="index-ar.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">الرئيسية</a>
+                    <a href="pages/about-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">من نحن</a>
+                    <a href="pages/products-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">منتجاتنا</a>
+                    <a href="pages/gallery-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">معرض الصور</a>
+                    <a href="pages/contact-ar.html" class="gold-gradient text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all">اتصل بنا</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-2 space-x-reverse">
+                    <a href="index-ar.html" class="px-3 py-1 text-sm font-medium text-white bg-gold-600 rounded-full">عربي</a>
+                    <a href="index.html" class="px-3 py-1 text-sm font-medium text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white transition-all">FR</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600 hover:text-gold-600"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index-ar.html" class="block py-2 text-gold-600 font-medium">الرئيسية</a>
+                <a href="pages/about-ar.html" class="block py-2 text-gray-600">من نحن</a>
+                <a href="pages/products-ar.html" class="block py-2 text-gray-600">منتجاتنا</a>
+                <a href="pages/gallery-ar.html" class="block py-2 text-gray-600">معرض الصور</a>
+                <a href="pages/contact-ar.html" class="block py-2 text-gray-600">اتصل بنا</a>
+                <div class="flex space-x-2 space-x-reverse pt-3 border-t">
+                    <a href="index-ar.html" class="px-4 py-2 text-sm font-medium text-white bg-gold-600 rounded-full">عربي</a>
+                    <a href="index.html" class="px-4 py-2 text-sm font-medium text-gold-600 border border-gold-600 rounded-full">Français</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Parallax -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&q=85" alt="حلويات فاخرة" class="w-full h-full object-cover scale-110" style="transform: scale(1.1);">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        </div>
+        
+        <!-- Floating Pastry Images -->
+        <div class="absolute top-32 right-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop" alt="كيك" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute top-48 left-16 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 0.5s;">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=200&h=200&fit=crop" alt="كرواسون" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute bottom-40 right-20 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 1s;">
+            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=200&h=200&fit=crop" alt="ماكرون" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute bottom-32 left-24 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 1.5s;">
+            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=200&h=200&fit=crop" alt="كعب الغزال" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-white/90 text-sm font-medium">مفتوح اليوم حتى الساعة 20:00</span>
+            </div>
+            
+            <!-- Logo/Title with decorative elements -->
+            <div class="relative inline-block mb-6">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-4 text-gold-400">
+                    <span class="w-16 h-px bg-gradient-to-r from-transparent to-gold-400"></span>
+                    <i class="fas fa-star text-sm"></i>
+                    <span class="w-16 h-px bg-gradient-to-l from-transparent to-gold-400"></span>
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white text-shadow">
+                    فلور دماند
+                </h1>
+                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 text-gold-400">
+                    <span class="w-20 h-px bg-gradient-to-r from-transparent to-gold-400"></span>
+                    <i class="fas fa-crown text-lg"></i>
+                    <span class="w-20 h-px bg-gradient-to-l from-transparent to-gold-400"></span>
+                </div>
+            </div>
+            
+            <p class="text-2xl md:text-3xl text-gold-300 italic mb-4 mt-10">فن الحلويات الراقية</p>
+            
+            <p class="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+                منذ أكثر من 10 سنوات، نصنع لحظات من السعادة بحلوياتنا الفاخرة. 
+                كل إبداع هو تحفة فنية، محضرة بشغف وأجود المكونات.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="pages/products-ar.html" class="gold-gradient text-white px-10 py-5 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-gold-500/30 transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center gap-3">
+                    <i class="fas fa-birthday-cake"></i> اكتشف منتجاتنا
+                </a>
+                <a href="https://wa.me/212671052345" target="_blank" class="bg-green-500 text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-green-600 hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-xl"></i> اطلب عبر واتساب
+                </a>
+            </div>
+            
+            <!-- Mini Gallery Preview -->
+            <div class="flex justify-center items-center gap-2 md:gap-4">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=100&h=100&fit=crop" alt="كيك" class="w-full h-full object-cover">
+                </div>
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=100&h=100&fit=crop" alt="كرواسون" class="w-full h-full object-cover">
+                </div>
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=100&h=100&fit=crop" alt="ماكرون" class="w-full h-full object-cover">
+                </div>
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=100&h=100&fit=crop" alt="مغربي" class="w-full h-full object-cover">
+                </div>
+                <a href="pages/gallery-ar.html" class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gold-600/80 backdrop-blur border-2 border-gold-400 flex items-center justify-center text-white hover:bg-gold-600 transition-all hover:scale-110">
+                    <div class="text-center">
+                        <i class="fas fa-plus text-lg"></i>
+                        <p class="text-xs mt-1">المزيد</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
+            <a href="#features" class="text-white/70 hover:text-gold-400 transition-colors">
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-sm">انزل للأسفل</span>
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="group">
+                    <div class="text-5xl md:text-6xl font-bold text-gold-500 mb-2">+10</div>
+                    <div class="text-gray-400 group-hover:text-gold-400 transition-colors">سنوات من الخبرة</div>
+                </div>
+                <div class="group">
+                    <div class="text-5xl md:text-6xl font-bold text-gold-500 mb-2">+50</div>
+                    <div class="text-gray-400 group-hover:text-gold-400 transition-colors">إبداع فريد</div>
+                </div>
+                <div class="group">
+                    <div class="text-5xl md:text-6xl font-bold text-gold-500 mb-2">+5000</div>
+                    <div class="text-gray-400 group-hover:text-gold-400 transition-colors">عميل راضٍ</div>
+                </div>
+                <div class="group">
+                    <div class="text-5xl md:text-6xl font-bold text-gold-500 mb-2">100%</div>
+                    <div class="text-gray-400 group-hover:text-gold-400 transition-colors">مكونات طبيعية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">لماذا تختارنا</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">التميز في كل يوم</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">التزامنا بالجودة والأصالة يجعل كل زيارة تجربة لا تُنسى.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group text-center p-8 bg-cream-50 rounded-3xl hover:bg-gold-600 transition-all duration-500">
+                    <div class="w-20 h-20 gold-gradient group-hover:bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-all duration-500">
+                        <i class="fas fa-leaf text-white group-hover:text-gold-600 text-3xl transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 group-hover:text-white mb-3 transition-colors">100% طبيعي</h3>
+                    <p class="text-gray-600 group-hover:text-white/80 transition-colors">مكونات طازجة وطبيعية، بدون مواد حافظة أو إضافات صناعية.</p>
+                </div>
+                
+                <div class="group text-center p-8 bg-cream-50 rounded-3xl hover:bg-gold-600 transition-all duration-500">
+                    <div class="w-20 h-20 gold-gradient group-hover:bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-all duration-500">
+                        <i class="fas fa-award text-white group-hover:text-gold-600 text-3xl transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 group-hover:text-white mb-3 transition-colors">صنع يدوي</h3>
+                    <p class="text-gray-600 group-hover:text-white/80 transition-colors">كل إبداع يُحضَّر يدوياً في مشغلنا كل يوم.</p>
+                </div>
+                
+                <div class="group text-center p-8 bg-cream-50 rounded-3xl hover:bg-gold-600 transition-all duration-500">
+                    <div class="w-20 h-20 gold-gradient group-hover:bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-all duration-500">
+                        <i class="fas fa-heart text-white group-hover:text-gold-600 text-3xl transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 group-hover:text-white mb-3 transition-colors">بكل حب</h3>
+                    <p class="text-gray-600 group-hover:text-white/80 transition-colors">فريقنا يضع كل قلبه في كل حلوى نصنعها.</p>
+                </div>
+                
+                <div class="group text-center p-8 bg-cream-50 rounded-3xl hover:bg-gold-600 transition-all duration-500">
+                    <div class="w-20 h-20 gold-gradient group-hover:bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-all duration-500">
+                        <i class="fas fa-truck text-white group-hover:text-gold-600 text-3xl transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 group-hover:text-white mb-3 transition-colors">توصيل</h3>
+                    <p class="text-gray-600 group-hover:text-white/80 transition-colors">خدمة التوصيل متاحة في الرباط لمناسباتكم الخاصة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Products Section -->
+    <section class="py-24 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+                <div>
+                    <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">الأكثر طلباً</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900">إبداعاتنا المميزة</h2>
+                </div>
+                <a href="pages/products-ar.html" class="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-700 transition-colors group">
+                    شاهد كل المنتجات <i class="fas fa-arrow-left group-hover:-translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
+                    <div class="ribbon gold-gradient text-white">الأكثر مبيعاً</div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop" alt="فوريه نوار" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-gold-100 text-gold-700 px-3 py-1 rounded-full">كيك</span>
+                            <div class="flex text-gold-500 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">فوريه نوار</h3>
+                        <p class="text-gray-600 text-sm mb-4">شوكولاتة وكرز وكريمة شانتييه</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-600">180 درهم</span>
+                            <span class="text-sm text-gray-500">6-8 قطع</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
+                    <div class="ribbon bg-pink-500 text-white">مشهور</div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&h=600&fit=crop" alt="ماكرون" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full">حلويات</span>
+                            <div class="flex text-gold-500 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">ماكرون متنوع</h3>
+                        <p class="text-gray-600 text-sm mb-4">علبة 12 قطعة بنكهات متنوعة</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-600">120 درهم</span>
+                            <span class="text-sm text-gray-500">12 قطعة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
+                    <div class="ribbon bg-amber-500 text-white">تقليدي</div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&h=600&fit=crop" alt="كعب الغزال" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full">مغربي</span>
+                            <div class="flex text-gold-500 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">كعب الغزال</h3>
+                        <p class="text-gray-600 text-sm mb-4">عجينة اللوز معطرة بماء الزهر</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-600">150 درهم</span>
+                            <span class="text-sm text-gray-500">للكيلو</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
+                    <div class="ribbon bg-green-500 text-white">جديد</div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=600&fit=crop" alt="كرواسون" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-gold-100 text-gold-700 px-3 py-1 rounded-full">معجنات</span>
+                            <div class="flex text-gold-500 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">كرواسون بالزبدة</h3>
+                        <p class="text-gray-600 text-sm mb-4">طبقات ذهبية من الزبدة الفرنسية</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-600">8 درهم</span>
+                            <span class="text-sm text-gray-500">للقطعة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section class="py-24 bg-gray-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-400 font-medium tracking-widest uppercase mb-3">خبرتنا</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">معرض الإلهام</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">اكتشفوا أجمل إبداعاتنا واستلهموا لطلبكم القادم.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=500&h=500&fit=crop" alt="كيك زفاف" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">كيك الزفاف</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&h=500&fit=crop" alt="كب كيك" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">كب كيك</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl row-span-2">
+                    <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=500&h=1000&fit=crop" alt="بوفيه" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">بوفيهات</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=500&fit=crop" alt="عيد ميلاد" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">أعياد الميلاد</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=500&h=500&fit=crop" alt="إكلير" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">إكلير</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=500&h=500&fit=crop" alt="كرواسون" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">المعجنات</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&h=500&fit=crop" alt="مغربي" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white font-medium">حلويات مغربية</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="pages/gallery-ar.html" class="inline-flex items-center gap-3 gold-gradient text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all">
+                    <i class="fas fa-images"></i> شاهد كل المعرض
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">آراء العملاء</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">ماذا يقول عملاؤنا</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-cream-50 rounded-3xl p-8 relative">
+                    <div class="absolute -top-4 right-8 w-12 h-12 gold-gradient rounded-full flex items-center justify-center">
+                        <i class="fas fa-quote-right text-white text-lg"></i>
+                    </div>
+                    <div class="flex text-gold-500 mb-4 pt-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"كيك الزفاف كان رائعاً ولذيذاً. كل الضيوف أحبوه! خدمة ممتازة."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-200 flex items-center justify-center text-gold-700 font-bold">س</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">سارة أ.</div>
+                            <div class="text-sm text-gray-500">زفاف - يونيو 2024</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-cream-50 rounded-3xl p-8 relative">
+                    <div class="absolute -top-4 right-8 w-12 h-12 gold-gradient rounded-full flex items-center justify-center">
+                        <i class="fas fa-quote-right text-white text-lg"></i>
+                    </div>
+                    <div class="flex text-gold-500 mb-4 pt-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"الحلويات المغربية أصيلة ولذيذة. طعم التقليد الحقيقي. أنصح بشدة!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-200 flex items-center justify-center text-gold-700 font-bold">م</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">محمد ك.</div>
+                            <div class="text-sm text-gray-500">عميل دائم</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-cream-50 rounded-3xl p-8 relative">
+                    <div class="absolute -top-4 right-8 w-12 h-12 gold-gradient rounded-full flex items-center justify-center">
+                        <i class="fas fa-quote-right text-white text-lg"></i>
+                    </div>
+                    <div class="flex text-gold-500 mb-4 pt-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"كيك عيد ميلاد ابنتي كان مثالياً! بالضبط ما أرادته. شكراً فلور دماند!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-200 flex items-center justify-center text-gold-700 font-bold">ل</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">ليلى ب.</div>
+                            <div class="text-sm text-gray-500">عيد ميلاد - مارس 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&q=80" alt="خلفية" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/80"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">اطلب إبداعك</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">لمناسباتكم الخاصة أو لإسعاد أنفسكم، نحن هنا لتحقيق رغباتكم.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+212671052345" class="gold-gradient text-white px-10 py-5 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-3 hover:shadow-2xl transition-all">
+                    <i class="fas fa-phone"></i> 0671 052 345
+                </a>
+                <a href="https://wa.me/212671052345" target="_blank" class="bg-green-500 text-white px-10 py-5 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-3 hover:bg-green-600 hover:shadow-2xl transition-all">
+                    <i class="fab fa-whatsapp text-xl"></i> واتساب
+                </a>
+                <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-10 py-5 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-3 hover:shadow-2xl transition-all">
+                    <i class="fab fa-instagram text-xl"></i> انستغرام
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold text-gold-500 mb-4">Fleur d'Amande</h3>
+                    <p class="text-gray-400 mb-6">التميز الحرفي منذ أكثر من 10 سنوات. كل إبداع هو تحفة فنية.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 transition-all"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fas fa-map-marker-alt text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-gold-500"></i>الرئيسية</a></li>
+                        <li><a href="pages/about-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-gold-500"></i>من نحن</a></li>
+                        <li><a href="pages/products-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-gold-500"></i>منتجاتنا</a></li>
+                        <li><a href="pages/gallery-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-gold-500"></i>معرض الصور</a></li>
+                        <li><a href="pages/contact-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-gold-500"></i>اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">أوقات العمل</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between"><span>الإثنين - السبت</span><span class="text-gold-500">8:00 - 20:00</span></li>
+                        <li class="flex justify-between"><span>الأحد</span><span class="text-gold-500">9:00 - 18:00</span></li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-gold-600/20 rounded-xl border border-gold-600/30">
+                        <p class="text-gold-400 text-sm"><i class="fas fa-info-circle ml-2"></i>الطلبات الخاصة: قبل 48 ساعة</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">تواصل معنا</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-400"><div class="w-10 h-10 bg-gold-600/20 rounded-full flex items-center justify-center"><i class="fas fa-phone text-gold-500"></i></div><a href="tel:+212671052345" class="hover:text-gold-500 transition-colors">0671 052 345</a></li>
+                        <li class="flex items-center gap-3 text-gray-400"><div class="w-10 h-10 bg-gold-600/20 rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-gold-500"></i></div>الرباط، المغرب</li>
+                        <li class="flex items-center gap-3 text-gray-400"><div class="w-10 h-10 bg-gold-600/20 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-gold-500"></i></div><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500 transition-colors">@fleurdamande1</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500">&copy; 2024 Fleur d'Amande. جميع الحقوق محفوظة.</p>
+                <p class="text-gray-500 mt-2">تم الإنشاء والتصميم بواسطة <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p>
+                <div class="flex items-center gap-2">
+                    <a href="index-ar.html" class="px-4 py-2 text-sm text-white bg-gold-600 rounded-full">عربي</a>
+                    <a href="index.html" class="px-4 py-2 text-sm text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white transition-all">Français</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 left-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('md:top-0', 'md:mx-0', 'md:rounded-none');
+                navbar.classList.remove('md:top-8', 'md:mx-4', 'lg:mx-8', 'md:rounded-2xl');
+            } else {
+                navbar.classList.remove('md:top-0', 'md:mx-0', 'md:rounded-none');
+                navbar.classList.add('md:top-8', 'md:mx-4', 'lg:mx-8', 'md:rounded-2xl');
+            }
+        });
+    </script>
+</body>
+</html>

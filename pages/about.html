@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'histoire de Fleur d'Amande - Pâtisserie artisanale de luxe à Rabat">
+    <title>À Propos | Fleur d'Amande</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 50: '#FBF9F3', 100: '#F5EFE0', 200: '#E8DCC3', 300: '#D4C4A0', 400: '#C9A962', 500: '#B8860B', 600: '#A67C00', 700: '#8B6914', 800: '#705516', 900: '#5C4614' },
+                        cream: { 50: '#FFFEFB', 100: '#FDF8F3', 200: '#FAF3EA', 300: '#F5EBE0', 400: '#EBE0D2' }
+                    },
+                    fontFamily: { 'display': ['Cormorant Garamond', 'serif'], 'body': ['Montserrat', 'sans-serif'], 'arabic': ['Tajawal', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(184, 134, 11, 0.25); }
+        .line-decoration::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #B8860B, transparent); }
+    </style>
+</head>
+<body class="font-body bg-cream-100 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex flex-col items-center">
+                    <span class="font-display text-2xl md:text-3xl font-semibold text-gold-600">Fleur d'Amande</span>
+                    <span class="text-xs text-gray-500 tracking-widest uppercase">Pâtisserie Artisanale</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-gold-600 transition-colors">Accueil</a>
+                    <a href="about.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">À Propos</a>
+                    <a href="products.html" class="text-gray-600 hover:text-gold-600 transition-colors">Nos Créations</a>
+                    <a href="gallery.html" class="text-gray-600 hover:text-gold-600 transition-colors">Galerie</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gold-600 transition-colors">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="about.html" class="px-3 py-1 text-sm font-medium text-white bg-gold-600 rounded-full">FR</a>
+                    <a href="about-ar.html" class="px-3 py-1 text-sm font-medium text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white transition-all">عربي</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="../index.html" class="block py-2 text-gray-600">Accueil</a>
+                <a href="about.html" class="block py-2 text-gold-600 font-medium">À Propos</a>
+                <a href="products.html" class="block py-2 text-gray-600">Nos Créations</a>
+                <a href="gallery.html" class="block py-2 text-gray-600">Galerie</a>
+                <a href="contact.html" class="block py-2 text-gray-600">Contact</a>
+                <div class="flex space-x-2 pt-3 border-t">
+                    <a href="about.html" class="px-4 py-2 text-sm text-white bg-gold-600 rounded-full">Français</a>
+                    <a href="about-ar.html" class="px-4 py-2 text-sm text-gold-600 border border-gold-600 rounded-full">عربي</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-gold-400 font-medium tracking-widest uppercase mb-3">Notre Histoire</p>
+            <h1 class="font-display text-5xl md:text-6xl font-bold mb-4">À Propos de Nous</h1>
+            <p class="text-xl text-gray-300">Notre passion pour l'art de la pâtisserie</p>
+        </div>
+    </header>
+
+    <!-- About Story Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=500&fit=crop" alt="Notre équipe" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">Notre Voyage</p>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">Notre Histoire</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        L'aventure Fleur d'Amande est née d'une véritable passion pour l'art pâtissier. Nous croyons que chaque création sucrée est une œuvre d'art, façonnée avec amour et expertise.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        Au fil des années, nous avons maintenu notre engagement envers la qualité et l'innovation, alliant recettes traditionnelles marocaines aux techniques pâtissières les plus modernes.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Nous sommes fiers de notre équipe d'artisans pâtissiers qualifiés qui travaillent avec passion chaque jour pour offrir le meilleur à nos clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-24 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">Ce Qui Nous Définit</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 relative inline-block line-decoration">Nos Valeurs</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-2xl p-8 text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-gem text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Qualité</h3>
+                    <p class="text-gray-600">Nous nous engageons aux plus hauts standards de qualité, du choix des ingrédients à la présentation finale</p>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Créativité</h3>
+                    <p class="text-gray-600">Nous innovons constamment avec de nouvelles recettes et designs uniques pour satisfaire tous les goûts</p>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Intégrité</h3>
+                    <p class="text-gray-600">Nous traitons nos clients avec honnêteté et transparence, garantissant leur satisfaction totale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">Notre Parcours</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 relative inline-block line-decoration">Notre Évolution</h2>
+            </div>
+            <div class="space-y-8">
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg">1</div>
+                    <div class="bg-cream-100 rounded-2xl p-6 flex-1">
+                        <h3 class="font-display text-xl font-semibold text-gold-600 mb-2">Les Débuts</h3>
+                        <p class="text-gray-600">Nous avons ouvert notre première petite boutique au cœur de Rabat avec un grand rêve et une passion pour la pâtisserie</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg">2</div>
+                    <div class="bg-cream-100 rounded-2xl p-6 flex-1">
+                        <h3 class="font-display text-xl font-semibold text-gold-600 mb-2">L'Expansion</h3>
+                        <p class="text-gray-600">Nous avons élargi notre gamme de produits et commencé à proposer nos services pour les événements spéciaux</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg">3</div>
+                    <div class="bg-cream-100 rounded-2xl p-6 flex-1">
+                        <h3 class="font-display text-xl font-semibold text-gold-600 mb-2">L'Excellence</h3>
+                        <p class="text-gray-600">Nous sommes devenus une destination privilégiée pour les amateurs de pâtisseries fines dans la ville</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg">4</div>
+                    <div class="bg-cream-100 rounded-2xl p-6 flex-1">
+                        <h3 class="font-display text-xl font-semibold text-gold-600 mb-2">Aujourd'hui</h3>
+                        <p class="text-gray-600">Nous continuons à offrir les meilleures pâtisseries avec un service de livraison dans tout Rabat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-24 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">Les Artisans</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 relative inline-block line-decoration">Notre Équipe</h2>
+                <p class="text-gray-600 text-lg mt-8 max-w-2xl mx-auto">Nous sommes fiers de notre équipe de pâtissiers professionnels qui allient expertise et créativité</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-user-tie text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Pâtissiers Experts</h3>
+                    <p class="text-gray-600">Une équipe spécialisée avec des années d'expérience dans l'art de la pâtisserie</p>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Service Client</h3>
+                    <p class="text-gray-600">Une équipe toujours prête à vous aider et à choisir le meilleur pour vos événements</p>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 gold-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Designers Créatifs</h3>
+                    <p class="text-gray-600">Des artistes qui transforment vos idées en véritables chefs-d'œuvre sucrés</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1920&q=80" alt="Pâtisserie" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gray-900/85"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Rejoignez Notre Famille de Clients</h2>
+            <p class="text-gray-300 text-xl mb-10">Contactez-nous aujourd'hui et découvrez un monde de saveurs uniques</p>
+            <a href="contact.html" class="gold-gradient text-white px-10 py-5 rounded-full font-semibold text-lg inline-block hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                Nous Contacter
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-gold-500 mb-4">Fleur d'Amande</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">L'excellence artisanale depuis des années. Chaque création est une promesse de qualité.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fas fa-map-marker-alt text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-gold-500 transition-colors">Accueil</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold-500 transition-colors">À Propos</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-gold-500 transition-colors">Nos Créations</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-gold-500 transition-colors">Galerie</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-gold-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Horaires</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between"><span>Lun - Sam</span><span class="text-gold-500">8h - 20h</span></li>
+                        <li class="flex justify-between"><span>Dimanche</span><span class="text-gold-500">9h - 18h</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-gold-500 w-6"></i><a href="tel:+212671052345" class="hover:text-gold-500">0671 052 345</a></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-gold-500 w-6"></i><span>Rabat, Maroc</span></li>
+                        <li class="flex items-center text-gray-400"><i class="fab fa-instagram text-gold-500 w-6"></i><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500">@fleurdamande1</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 Fleur d'Amande. Tous droits réservés.</p>
+                <p class="mt-2">Créé et designé par <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

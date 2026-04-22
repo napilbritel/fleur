@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez Fleur d'Amande - Pâtisserie artisanale à Rabat">
+    <title>Contact | Fleur d'Amande</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 50: '#FBF9F3', 100: '#F5EFE0', 200: '#E8DCC3', 300: '#D4C4A0', 400: '#C9A962', 500: '#B8860B', 600: '#A67C00', 700: '#8B6914', 800: '#705516', 900: '#5C4614' },
+                        cream: { 50: '#FFFEFB', 100: '#FDF8F3', 200: '#FAF3EA', 300: '#F5EBE0', 400: '#EBE0D2' }
+                    },
+                    fontFamily: { 'display': ['Cormorant Garamond', 'serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
+        .line-decoration::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #B8860B, transparent); }
+    </style>
+</head>
+<body class="font-body bg-cream-100 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="flex flex-col items-center">
+                    <span class="font-display text-2xl md:text-3xl font-semibold text-gold-600">Fleur d'Amande</span>
+                    <span class="text-xs text-gray-500 tracking-widest uppercase">Pâtisserie Artisanale</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-gold-600 transition-colors">Accueil</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gold-600 transition-colors">À Propos</a>
+                    <a href="products.html" class="text-gray-600 hover:text-gold-600 transition-colors">Nos Créations</a>
+                    <a href="gallery.html" class="text-gray-600 hover:text-gold-600 transition-colors">Galerie</a>
+                    <a href="contact.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="contact.html" class="px-3 py-1 text-sm font-medium text-white bg-gold-600 rounded-full">FR</a>
+                    <a href="contact-ar.html" class="px-3 py-1 text-sm font-medium text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white transition-all">عربي</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="../index.html" class="block py-2 text-gray-600">Accueil</a>
+                <a href="about.html" class="block py-2 text-gray-600">À Propos</a>
+                <a href="products.html" class="block py-2 text-gray-600">Nos Créations</a>
+                <a href="gallery.html" class="block py-2 text-gray-600">Galerie</a>
+                <a href="contact.html" class="block py-2 text-gold-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-gold-400 font-medium tracking-widest uppercase mb-3">Nous Joindre</p>
+            <h1 class="font-display text-5xl md:text-6xl font-bold mb-4">Contactez-Nous</h1>
+            <p class="text-xl text-gray-300">Nous sommes là pour vous aider et répondre à vos questions</p>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="bg-cream-100 rounded-2xl p-8 lg:p-12">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">Informations de Contact</h2>
+                    <p class="text-gray-600 mb-8">Nous serions ravis de vous entendre. Visitez-nous ou contactez-nous à tout moment.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Téléphone</h3>
+                                <a href="tel:+212671052345" class="text-gold-600 text-lg hover:text-gold-700">0671 052 345</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-whatsapp text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">WhatsApp</h3>
+                                <a href="https://wa.me/212671052345" target="_blank" class="text-gold-600 text-lg hover:text-gold-700">+212 671 052 345</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-instagram text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Instagram</h3>
+                                <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="text-gold-600 text-lg hover:text-gold-700">@fleurdamande1</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Adresse</h3>
+                                <p class="text-gray-600">Rabat, Maroc</p>
+                                <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="text-gold-600 hover:text-gold-700 inline-flex items-center gap-2 mt-2">
+                                    <i class="fas fa-directions"></i> Obtenir les directions
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Horaires</h3>
+                                <p class="text-gray-600">Lundi - Samedi: 8h - 20h</p>
+                                <p class="text-gray-600">Dimanche: 9h - 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-xl">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">Envoyez-nous un Message</h2>
+                    <p class="text-gray-600 mb-8">Nous vous répondrons dans les plus brefs délais.</p>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nom Complet *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 focus:outline-none transition-colors" placeholder="Votre nom complet">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 focus:outline-none transition-colors" placeholder="0600 000 000">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 focus:outline-none transition-colors" placeholder="votre@email.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Sujet *</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 focus:outline-none transition-colors" placeholder="Sujet de votre message">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 focus:outline-none transition-colors resize-none" placeholder="Écrivez votre message ici..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full gold-gradient text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Envoyer le Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-4 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-2xl overflow-hidden shadow-xl">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.5751599999997!2d-6.891282!3d33.9759256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76d3b75c88077%3A0xf63671df7f9a099f!2sFleur%20d&#39;Amande!5e0!3m2!1sfr!2sma!4v1234567890"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">Contact Rapide</p>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-8 relative inline-block line-decoration">Pour les Commandes Urgentes</h2>
+            <p class="text-gray-600 text-lg mb-10 mt-8">Besoin d'une réponse rapide ? Contactez-nous directement via ces canaux :</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+212671052345" class="gold-gradient text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-3 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    <i class="fas fa-phone text-xl"></i> Appeler
+                </a>
+                <a href="https://wa.me/212671052345" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-3 hover:bg-green-600 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    <i class="fab fa-whatsapp text-xl"></i> WhatsApp
+                </a>
+                <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-3 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    <i class="fab fa-instagram text-xl"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-gold-500 mb-4">Fleur d'Amande</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">L'excellence artisanale depuis des années.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fas fa-map-marker-alt text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-gold-500">Accueil</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold-500">À Propos</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-gold-500">Nos Créations</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-gold-500">Galerie</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-gold-500">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Horaires</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between"><span>Lun - Sam</span><span class="text-gold-500">8h - 20h</span></li>
+                        <li class="flex justify-between"><span>Dimanche</span><span class="text-gold-500">9h - 18h</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-gold-500 w-6"></i><a href="tel:+212671052345" class="hover:text-gold-500">0671 052 345</a></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-gold-500 w-6"></i><span>Rabat, Maroc</span></li>
+                        <li class="flex items-center text-gray-400"><i class="fab fa-instagram text-gold-500 w-6"></i><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500">@fleurdamande1</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500"><p>&copy; 2024 Fleur d'Amande. Tous droits réservés.</p><p class="mt-2">Créé et designé par <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const successMsg = document.createElement('div');
+            successMsg.className = 'bg-green-100 text-green-800 px-6 py-4 rounded-xl text-center mt-6';
+            successMsg.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Merci pour votre message ! Nous vous répondrons bientôt.';
+            
+            this.reset();
+            this.appendChild(successMsg);
+            
+            setTimeout(() => successMsg.remove(), 5000);
+        });
+    </script>
+</body>
+</html>
