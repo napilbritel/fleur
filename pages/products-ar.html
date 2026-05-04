@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="اكتشفوا إبداعاتنا الحلوية الفاخرة - فلور دماند الرباط">
-    <title>منتجاتنا | فلور دماند</title>
+    <meta name="description" content="اكتشفي إبداعاتنا من الحلويات الفاخرة - فلور دامند الرباط">
+    <title>إبداعاتنا | فلور دامند</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
@@ -17,32 +17,20 @@
                     colors: {
                         gold: { 50: '#FBF9F3', 100: '#F5EFE0', 200: '#E8DCC3', 300: '#D4C4A0', 400: '#C9A962', 500: '#B8860B', 600: '#A67C00', 700: '#8B6914', 800: '#705516', 900: '#5C4614' },
                         cream: { 50: '#FFFEFB', 100: '#FDF8F3', 200: '#FAF3EA', 300: '#F5EBE0', 400: '#EBE0D2' }
-                    }
+                    },
+                    fontFamily: { 'display': ['Cormorant Garamond', 'serif'], 'body': ['Montserrat', 'sans-serif'] }
                 }
             }
         }
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Tajawal', sans-serif; }
         .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
-        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(184, 134, 11, 0.3); }
-        .img-zoom { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .group:hover .img-zoom { transform: scale(1.1); }
-        .badge { position: absolute; top: 16px; left: 16px; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .badge-new { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; }
-        .badge-popular { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; }
-        .badge-special { background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); color: white; }
-        .price-tag { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 100%); }
-        .section-divider { background: linear-gradient(90deg, transparent, #B8860B 20%, #B8860B 80%, transparent); height: 1px; }
-        .floating-badge { animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        /* ===== MOBILE ENHANCEMENTS ===== */
+        .img-zoom { transition: transform 0.5s ease; }
+        .photo-card:hover .img-zoom { transform: scale(1.07); }
+        .photo-card { cursor: pointer; }
         @media (max-width: 1024px) {
             body { padding-bottom: 82px !important; }
-            .card-hover:hover { transform: none !important; box-shadow: none !important; }
-            .group:hover .img-zoom { transform: scale(1) !important; }
         }
         .mobile-bottom-nav {
             padding-bottom: env(safe-area-inset-bottom, 8px);
@@ -51,27 +39,35 @@
         }
         .mob-nav-link { -webkit-tap-highlight-color: transparent; }
         .mob-nav-link:active { opacity: 0.65; }
+        /* Lightbox */
+        #lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; }
+        #lightbox.active { display:flex; }
+        #lightbox img { max-width:92vw; max-height:90vh; border-radius:12px; object-fit:contain; }
+        #lightbox-close { position:absolute; top:20px; right:24px; color:white; font-size:2rem; cursor:pointer; }
+        #lightbox-prev, #lightbox-next { position:absolute; top:50%; transform:translateY(-50%); color:white; font-size:2rem; cursor:pointer; background:rgba(255,255,255,0.1); border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; }
+        #lightbox-prev { left:16px; }
+        #lightbox-next { right:16px; }
     </style>
 </head>
-<body class="bg-cream-100 text-gray-800">
+<body class="font-body bg-cream-100 text-gray-800">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="../index-ar.html" class="flex flex-col items-center">
                     <span class="font-display text-2xl md:text-3xl font-semibold text-gold-600">Fleur d'Amande</span>
-                    <span class="text-xs text-gray-500">حلويات فاخرة</span>
+                    <span class="text-xs text-gray-500 tracking-widest uppercase">Pâtisserie Artisanale</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-8 space-x-reverse">
-                    <a href="../index-ar.html" class="text-gray-600 hover:text-gold-600">الرئيسية</a>
-                    <a href="about-ar.html" class="text-gray-600 hover:text-gold-600">من نحن</a>
-                    <a href="products-ar.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">منتجاتنا</a>
-                    <a href="gallery-ar.html" class="text-gray-600 hover:text-gold-600">معرض الصور</a>
-                    <a href="contact-ar.html" class="text-gray-600 hover:text-gold-600">اتصل بنا</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">الرئيسية</a>
+                    <a href="about-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">من نحن</a>
+                    <a href="products-ar.html" class="text-gold-600 font-medium border-b-2 border-gold-500 pb-1">إبداعاتنا</a>
+                    <a href="gallery-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">المعرض</a>
+                    <a href="contact-ar.html" class="text-gray-600 hover:text-gold-600 transition-colors">تواصل</a>
                 </div>
-                <div class="hidden lg:flex items-center space-x-2 space-x-reverse">
-                    <a href="products-ar.html" class="px-3 py-1 text-sm font-medium text-white bg-gold-600 rounded-full">عربي</a>
-                    <a href="products.html" class="px-3 py-1 text-sm font-medium text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white">FR</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="products-ar.html" class="px-3 py-1 text-sm font-medium text-white bg-gold-600 rounded-full">FR</a>
+                    <a href="products.html" class="px-3 py-1 text-sm font-medium text-gold-600 border border-gold-600 rounded-full hover:bg-gold-600 hover:text-white transition-all">FR</a>
                 </div>
                 <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600"><i class="fas fa-bars text-xl"></i></button>
             </div>
@@ -80,418 +76,375 @@
             <div class="px-4 py-4 space-y-3">
                 <a href="../index-ar.html" class="block py-2 text-gray-600">الرئيسية</a>
                 <a href="about-ar.html" class="block py-2 text-gray-600">من نحن</a>
-                <a href="products-ar.html" class="block py-2 text-gold-600 font-medium">منتجاتنا</a>
-                <a href="gallery-ar.html" class="block py-2 text-gray-600">معرض الصور</a>
-                <a href="contact-ar.html" class="block py-2 text-gray-600">اتصل بنا</a>
+                <a href="products-ar.html" class="block py-2 text-gold-600 font-medium">إبداعاتنا</a>
+                <a href="gallery-ar.html" class="block py-2 text-gray-600">المعرض</a>
+                <a href="contact-ar.html" class="block py-2 text-gray-600">تواصل</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Header -->
-    <header class="relative pt-20 min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <header class="relative pt-20 min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
         <div class="absolute inset-0 opacity-30" style="background-image: url('../Boutique image /1.jpeg'); background-size: cover; background-position: center;"></div>
-        <div class="relative z-10 text-center px-4 py-20">
+        <div class="relative z-10 text-center px-4 py-16">
             <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/30 rounded-full px-6 py-2 mb-6">
                 <i class="fas fa-star text-gold-400"></i>
-                <span class="text-gold-300 text-sm font-medium">التميز الحرفي</span>
+                <span class="text-gold-300 text-sm font-medium tracking-wide">إبداع حرفي</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">منتجاتنا</h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10">مجموعة راقية من الحلويات الفاخرة، محضرة بشغف كل يوم</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#gateaux" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"><i class="fas fa-birthday-cake ml-2"></i>الكيك</a>
-                <a href="#marocain" class="px-8 py-3 bg-white/10 backdrop-blur border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"><i class="fas fa-moon ml-2"></i>مغربية</a>
-            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6">إبداعاتنا</h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">كل إبداعاتنا مباشرة من Instagram</p>
         </div>
     </header>
 
-
-    <!-- Gâteaux Section -->
-    <section id="gateaux" class="py-24 bg-cream-50">
+    <!-- Photo Grid -->
+    <section class="py-16 bg-cream-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-                <div>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg"><i class="fas fa-birthday-cake text-white text-2xl"></i></div>
-                        <div>
-                            <p class="text-rose-600 font-medium tracking-widest uppercase text-sm">إبداعات حصرية</p>
-                            <h2 class="text-4xl md:text-5xl font-bold text-gray-900">الكيك</h2>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 max-w-xl">إبداعات فريدة لمناسباتكم الخاصة. طلبات مخصصة حسب الطلب.</p>
+            <p class="text-center text-gray-500 mb-10 text-sm tracking-widest uppercase">80 إبداع • اضغطي للتكبير</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(0)">
+                    <img src="../images/instagram/ig_01_cake_spider.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-                <a href="contact-ar.html" class="inline-flex items-center gap-2 px-6 py-3 bg-rose-100 text-rose-600 rounded-full font-medium hover:bg-rose-600 hover:text-white transition-all">
-                    <i class="fas fa-magic"></i>
-                    <span>اطلب حسب مقاسك</span>
-                </a>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Gâteau 1 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_02_wedding_cake.jpg" alt="كيك زفاف فلور دماند" class="w-full h-full object-cover img-zoom">
-                        <span class="badge badge-popular floating-badge"><i class="fas fa-crown ml-1"></i>الأكثر مبيعاً</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">فوريه نوار</h3>
-                        <p class="text-gray-600 text-sm mb-4">شوكولاتة وكرز أمارينا وكريمة شانتييه خفيفة</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">180 درهم</span>
-                            <span class="text-xs text-gray-500">6-8 قطع</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(1)">
+                    <img src="../images/instagram/ig_02_wedding_cake.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 2 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_25_new.jpg" alt="كيك الورد" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيك الأناقة</h3>
-                        <p class="text-gray-600 text-sm mb-4">كيك جنواز مزين بورود السكر والتذهيب الحرفي</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">200 درهم</span>
-                            <span class="text-xs text-gray-500">6-8 قطع</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(2)">
+                    <img src="../images/instagram/ig_03_wedding_flowers.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 3 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_17_new.jpg" alt="كيك ماكارون" class="w-full h-full object-cover img-zoom">
-                        <span class="badge badge-new floating-badge"><i class="fas fa-sparkles ml-1"></i>جديد</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيك الماكارون</h3>
-                        <p class="text-gray-600 text-sm mb-4">كيك عيد ميلاد مزين بالماكارون الملون والزهور</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">250 درهم</span>
-                            <span class="text-xs text-gray-500">8 قطع</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(3)">
+                    <img src="../images/instagram/ig_04_bride_zineb.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 4 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_64_new.jpg" alt="كيك بابي" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيك بيبي</h3>
-                        <p class="text-gray-600 text-sm mb-4">زينة دب وقمر لأول أعياد ميلاد</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">300 درهم</span>
-                            <span class="text-xs text-gray-500">6-8 قطع</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(4)">
+                    <img src="../images/instagram/ig_05_tarts_eclairs.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 5 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_03_wedding_flowers.jpg" alt="كيك زفاف بالأزهار" class="w-full h-full object-cover img-zoom">
-                        <span class="badge badge-special floating-badge"><i class="fas fa-heart ml-1"></i>زفاف</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيك الزفاف</h3>
-                        <p class="text-gray-600 text-sm mb-4">كيك زفاف مخصص حسب رغباتكم</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-gold-600 font-semibold">حسب الطلب</span>
-                            <a href="contact-ar.html" class="text-xs text-gold-600 underline">تواصلوا معنا</a>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(5)">
+                    <img src="../images/instagram/ig_06_wedding_cake3.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 6 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_07_birthday_yasmine.jpg" alt="كيك عيد ميلاد" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيك عيد الميلاد</h3>
-                        <p class="text-gray-600 text-sm mb-4">تصاميم مخصصة لجميع الأعمار والمناسبات</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">ابتداءً من 250 درهم</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(6)">
+                    <img src="../images/instagram/ig_07_birthday_yasmine.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 7 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_43_new.jpg" alt="كيك موضوعاتي" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيك موضوعاتي</h3>
-                        <p class="text-gray-600 text-sm mb-4">تصاميم مخصصة لجميع الموضوعات والمناسبات</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">ابتداءً من 300 درهم</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(7)">
+                    <img src="../images/instagram/ig_08_pharmacy_cake.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
-
-                <!-- Gâteau 8 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_05_tarts_eclairs.jpg" alt="تارتليت فواكه" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">تارت الليمون بالميرانغ</h3>
-                        <p class="text-gray-600 text-sm mb-4">كريمة ليمون حامضة وميرانغ إيطالي محمص</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">140 درهم</span>
-                            <span class="text-xs text-gray-500">6 قطع</span>
-                        </div>
-                    </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(8)">
+                    <img src="../images/instagram/ig_09_cafe.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(9)">
+                    <img src="../images/instagram/ig_10_medical_cake.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(10)">
+                    <img src="../images/instagram/ig_11_adam_cake.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(11)">
+                    <img src="../images/instagram/ig_13_halawiyat.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(12)">
+                    <img src="../images/instagram/ig_14_plateau.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(13)">
+                    <img src="../images/instagram/ig_15_halawiyat2.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(14)">
+                    <img src="../images/instagram/ig_16_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(15)">
+                    <img src="../images/instagram/ig_17_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(16)">
+                    <img src="../images/instagram/ig_18_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(17)">
+                    <img src="../images/instagram/ig_19_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(18)">
+                    <img src="../images/instagram/ig_20_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(19)">
+                    <img src="../images/instagram/ig_21_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(20)">
+                    <img src="../images/instagram/ig_22_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(21)">
+                    <img src="../images/instagram/ig_23_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(22)">
+                    <img src="../images/instagram/ig_24_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(23)">
+                    <img src="../images/instagram/ig_25_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(24)">
+                    <img src="../images/instagram/ig_26_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(25)">
+                    <img src="../images/instagram/ig_27_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(26)">
+                    <img src="../images/instagram/ig_28_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(27)">
+                    <img src="../images/instagram/ig_29_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(28)">
+                    <img src="../images/instagram/ig_30_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(29)">
+                    <img src="../images/instagram/ig_31_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(30)">
+                    <img src="../images/instagram/ig_32_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(31)">
+                    <img src="../images/instagram/ig_33_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(32)">
+                    <img src="../images/instagram/ig_34_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(33)">
+                    <img src="../images/instagram/ig_35_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(34)">
+                    <img src="../images/instagram/ig_36_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(35)">
+                    <img src="../images/instagram/ig_37_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(36)">
+                    <img src="../images/instagram/ig_38_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(37)">
+                    <img src="../images/instagram/ig_39_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(38)">
+                    <img src="../images/instagram/ig_40_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(39)">
+                    <img src="../images/instagram/ig_41_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(40)">
+                    <img src="../images/instagram/ig_42_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(41)">
+                    <img src="../images/instagram/ig_43_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(42)">
+                    <img src="../images/instagram/ig_44_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(43)">
+                    <img src="../images/instagram/ig_45_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(44)">
+                    <img src="../images/instagram/ig_46_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(45)">
+                    <img src="../images/instagram/ig_47_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(46)">
+                    <img src="../images/instagram/ig_48_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(47)">
+                    <img src="../images/instagram/ig_49_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(48)">
+                    <img src="../images/instagram/ig_50_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(49)">
+                    <img src="../images/instagram/ig_51_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(50)">
+                    <img src="../images/instagram/ig_52_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(51)">
+                    <img src="../images/instagram/ig_53_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(52)">
+                    <img src="../images/instagram/ig_54_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(53)">
+                    <img src="../images/instagram/ig_55_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(54)">
+                    <img src="../images/instagram/ig_56_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(55)">
+                    <img src="../images/instagram/ig_57_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(56)">
+                    <img src="../images/instagram/ig_58_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(57)">
+                    <img src="../images/instagram/ig_59_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(58)">
+                    <img src="../images/instagram/ig_60_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(59)">
+                    <img src="../images/instagram/ig_61_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(60)">
+                    <img src="../images/instagram/ig_62_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(61)">
+                    <img src="../images/instagram/ig_63_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(62)">
+                    <img src="../images/instagram/ig_64_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(63)">
+                    <img src="../images/instagram/ig_65_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(64)">
+                    <img src="../images/instagram/ig_66_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(65)">
+                    <img src="../images/instagram/ig_67_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(66)">
+                    <img src="../images/instagram/ig_68_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(67)">
+                    <img src="../images/instagram/ig_69_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(68)">
+                    <img src="../images/instagram/ig_70_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(69)">
+                    <img src="../images/instagram/ig_71_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(70)">
+                    <img src="../images/instagram/ig_72_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(71)">
+                    <img src="../images/instagram/ig_73_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(72)">
+                    <img src="../images/instagram/ig_74_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(73)">
+                    <img src="../images/instagram/ig_75_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(74)">
+                    <img src="../images/instagram/ig_76_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(75)">
+                    <img src="../images/instagram/ig_77_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(76)">
+                    <img src="../images/instagram/ig_78_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(77)">
+                    <img src="../images/instagram/ig_79_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(78)">
+                    <img src="../images/instagram/ig_80_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="photo-card rounded-2xl overflow-hidden shadow-md aspect-square" onclick="openLightbox(79)">
+                    <img src="../images/instagram/ig_81_new.jpg" alt="إبداع فلور دامند" class="img-zoom w-full h-full object-cover" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Divider -->
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- Pâtisseries Marocaines Section -->
-    <section id="marocain" class="py-24 bg-gradient-to-br from-amber-50 to-orange-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-                <div>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg"><i class="fas fa-moon text-white text-2xl"></i></div>
-                        <div>
-                            <p class="text-amber-600 font-medium tracking-widest uppercase text-sm">التراث المغربي</p>
-                            <h2 class="text-4xl md:text-5xl font-bold text-gray-900">الحلويات المغربية</h2>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 max-w-xl">نكهات مغربية أصيلة، محضرة وفق وصفات تقليدية متوارثة من جيل إلى جيل.</p>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-500">
-                    <i class="fas fa-gift text-amber-500"></i>
-                    <span>علب هدايا متوفرة</span>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Marocain 1 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_13_halawiyat.jpg" alt="حلويات مغربية" class="w-full h-full object-cover img-zoom">
-                        <span class="badge badge-popular floating-badge"><i class="fas fa-star ml-1"></i>لا يفوتك</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كعب الغزال</h3>
-                        <p class="text-gray-600 text-sm mb-4">عجينة اللوز معطرة بماء الزهر</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">150 درهم/كغ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 2 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_15_halawiyat2.jpg" alt="حلويات شرقية" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">الشباكية</h3>
-                        <p class="text-gray-600 text-sm mb-4">وردة العسل مع السمسم</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">120 درهم/كغ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 3 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_18_new.jpg" alt="كيكة لوز مغربية" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">كيكة اللوز</h3>
-                        <p class="text-gray-600 text-sm mb-4">عجينة لوز مزينة بالجوز وبتلات الورد</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">200 درهم/قطعة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 4 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_36_new.jpg" alt="تخصص فلور دامند" class="w-full h-full object-cover img-zoom">
-                        <span class="badge badge-special floating-badge"><i class="fas fa-heart ml-1"></i>توقيعنا</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">تخصص البيت</h3>
-                        <p class="text-gray-600 text-sm mb-4">وصفة البيت باللوز وماء زهر البرتقال</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">180 درهم/قطعة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 5 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_14_plateau.jpg" alt="صينية برستيج" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">صينية برستيج</h3>
-                        <p class="text-gray-600 text-sm mb-4">تشكيلة من حلويات مغربية في صينية تزيينية</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">250 درهم</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 6 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_13_halawiyat.jpg" alt="بوكس حلويات" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">بوكس الحلويات</h3>
-                        <p class="text-gray-600 text-sm mb-4">علبة مخصصة من الحلويات في علبة موسومة</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">120 درهم/علبة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 7 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_52_new.jpg" alt="المحنشة" class="w-full h-full object-cover img-zoom">
-                        <span class="badge badge-new floating-badge"><i class="fas fa-sparkles ml-1"></i>توقيعنا</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">المحنشة</h3>
-                        <p class="text-gray-600 text-sm mb-4">ثعبان اللوز الملفوف بماء الزهر والذهب</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">180 درهم/قطعة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Marocain 8 -->
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="../images/instagram/ig_15_halawiyat2.jpg" alt="تشكيلة مغربية" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">تشكيلة مغربية</h3>
-                        <p class="text-gray-600 text-sm mb-4">مجموعة متنوعة من الحلويات التقليدية المغربية</p>
-                        <div class="flex items-center justify-between">
-                            <span class="price-tag text-white px-4 py-1 rounded-full text-sm font-semibold">160 درهم/كغ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gift Box CTA -->
-            <div class="mt-16 bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl p-8 md:p-12 text-white text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">علب الهدايا</h3>
-                <p class="text-amber-100 text-lg mb-8 max-w-2xl mx-auto">كونوا تشكيلتكم من الحلويات المغربية للإهداء أو للاستمتاع بها.</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="bg-white/20 backdrop-blur rounded-2xl px-6 py-4">
-                        <span class="block text-2xl font-bold">250 درهم</span>
-                        <span class="text-amber-200 text-sm">علبة 500غ</span>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur rounded-2xl px-6 py-4">
-                        <span class="block text-2xl font-bold">450 درهم</span>
-                        <span class="text-amber-200 text-sm">علبة 1 كغ</span>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur rounded-2xl px-6 py-4">
-                        <span class="block text-2xl font-bold">850 درهم</span>
-                        <span class="text-amber-200 text-sm">علبة 2 كغ</span>
-                    </div>
-                </div>
-                <a href="contact-ar.html" class="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-white text-amber-600 rounded-full font-semibold hover:shadow-2xl transition-all">
-                    <i class="fas fa-gift"></i>
-                    <span>اطلب علبة هدية</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gray-900 text-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <i class="fas fa-phone-alt text-gold-500 text-4xl mb-6"></i>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">اطلب الآن</h2>
-            <p class="text-gray-300 text-lg mb-8">اتصلوا بنا أو زورونا لتقديم طلبكم</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="tel:+212671052345" class="gold-gradient text-white px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:shadow-2xl transition-all">
-                    <i class="fas fa-phone"></i> 0671 052 345
-                </a>
-                <a href="https://wa.me/212671052345" target="_blank" class="bg-green-500 text-white px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-green-600 hover:shadow-2xl transition-all">
-                    <i class="fab fa-whatsapp text-xl"></i> واتساب
-                </a>
-            </div>
-        </div>
+    <!-- CTA -->
+    <section class="py-16 bg-white text-center">
+        <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">اطلبي حسب الطلب</h2>
+        <p class="text-gray-500 mb-8 max-w-xl mx-auto">عندك فكرة؟ تواصلي معنا لإنجاز طلب خاص بك.</p>
+        <a href="https://wa.me/212671052345" target="_blank" class="inline-flex items-center gap-3 px-10 py-4 bg-green-500 text-white rounded-full text-lg font-semibold hover:bg-green-600 transition-all shadow-lg">
+            <i class="fab fa-whatsapp text-2xl"></i> اطلبي عبر واتساب
+        </a>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-20 pb-8 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
-                    <h3 class="text-3xl font-bold text-gold-500 mb-4">Fleur d'Amande</h3>
-                    <p class="text-gray-400 mb-6">التميز الحرفي منذ سنوات.</p>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500"><i class="fab fa-whatsapp text-xl"></i></a>
-                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600"><i class="fas fa-map-marker-alt text-xl"></i></a>
+                    <h3 class="font-display text-2xl font-bold text-gold-400 mb-4">Fleur d'Amande</h3>
+                    <p class="text-gray-400 mb-6">الإبداع الحرفي منذ سنوات.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://wa.me/212671052345" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="https://www.google.com/maps/place/Fleur+d'Amande/@33.9759256,-6.891282,17z" target="_blank" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors"><i class="fas fa-map-marker-alt text-xl"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-6">روابط سريعة</h4>
                     <ul class="space-y-3">
-                        <li><a href="../index-ar.html" class="text-gray-400 hover:text-gold-500">الرئيسية</a></li>
-                        <li><a href="about-ar.html" class="text-gray-400 hover:text-gold-500">من نحن</a></li>
-                        <li><a href="products-ar.html" class="text-gray-400 hover:text-gold-500">منتجاتنا</a></li>
-                        <li><a href="gallery-ar.html" class="text-gray-400 hover:text-gold-500">معرض الصور</a></li>
-                        <li><a href="contact-ar.html" class="text-gray-400 hover:text-gold-500">اتصل بنا</a></li>
+                        <li><a href="../index-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors">الرئيسية</a></li>
+                        <li><a href="about-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors">من نحن</a></li>
+                        <li><a href="products-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors">إبداعاتنا</a></li>
+                        <li><a href="gallery-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors">المعرض</a></li>
+                        <li><a href="contact-ar.html" class="text-gray-400 hover:text-gold-500 transition-colors">تواصل</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-6">أوقات العمل</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li class="flex justify-between"><span>الإثنين - السبت</span><span class="text-gold-500">8:00 - 20:00</span></li>
-                        <li class="flex justify-between"><span>الأحد</span><span class="text-gold-500">9:00 - 18:00</span></li>
+                        <li class="flex justify-between"><span>الإثنين - السبت</span><span class="text-gold-500">8h00 - 20h00</span></li>
+                        <li class="flex justify-between"><span>الأحد</span><span class="text-gold-500">9h00 - 18h00</span></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-lg mb-6">تواصل معنا</h4>
+                    <h4 class="font-semibold text-lg mb-6">تواصل</h4>
                     <ul class="space-y-4">
-                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-gold-500 w-6"></i><a href="tel:+212671052345" class="hover:text-gold-500">0671 052 345</a></li>
-                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-gold-500 w-6"></i>الرباط، المغرب</li>
-                        <li class="flex items-center text-gray-400"><i class="fab fa-instagram text-gold-500 w-6"></i><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500">@fleurdamande1</a></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-gold-500 w-6"></i><a href="tel:+212671052345" class="hover:text-gold-500 transition-colors">0671 052 345</a></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-gold-500 w-6"></i>Rabat, Maroc</li>
+                        <li class="flex items-center text-gray-400"><i class="fab fa-instagram text-gold-500 w-6"></i><a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="hover:text-gold-500 transition-colors">@fleurdamande1</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 text-center text-gray-500">
-                <p>&copy; 2024 Fleur d'Amande. جميع الحقوق محفوظة.</p>
-                <p class="mt-2">تم الإنشاء والتصميم بواسطة <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p>
+                <p>&copy; 2024 Fleur d'Amande. Tous droits réservés.</p>
+                <p class="mt-2">Créé et designé par <a href="https://www.linkedin.com/in/nabil-britel-937014238/" target="_blank" class="text-gold-500 hover:text-gold-400 transition-colors font-medium">NABIL BRITEL</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <span id="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></span>
+        <span id="lightbox-prev" onclick="changeLightbox(-1)"><i class="fas fa-chevron-left"></i></span>
+        <img id="lightbox-img" src="" alt="">
+        <span id="lightbox-next" onclick="changeLightbox(1)"><i class="fas fa-chevron-right"></i></span>
+    </div>
 
     <script>
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+        const photos = ["ig_01_cake_spider.jpg", "ig_02_wedding_cake.jpg", "ig_03_wedding_flowers.jpg", "ig_04_bride_zineb.jpg", "ig_05_tarts_eclairs.jpg", "ig_06_wedding_cake3.jpg", "ig_07_birthday_yasmine.jpg", "ig_08_pharmacy_cake.jpg", "ig_09_cafe.jpg", "ig_10_medical_cake.jpg", "ig_11_adam_cake.jpg", "ig_13_halawiyat.jpg", "ig_14_plateau.jpg", "ig_15_halawiyat2.jpg", "ig_16_new.jpg", "ig_17_new.jpg", "ig_18_new.jpg", "ig_19_new.jpg", "ig_20_new.jpg", "ig_21_new.jpg", "ig_22_new.jpg", "ig_23_new.jpg", "ig_24_new.jpg", "ig_25_new.jpg", "ig_26_new.jpg", "ig_27_new.jpg", "ig_28_new.jpg", "ig_29_new.jpg", "ig_30_new.jpg", "ig_31_new.jpg", "ig_32_new.jpg", "ig_33_new.jpg", "ig_34_new.jpg", "ig_35_new.jpg", "ig_36_new.jpg", "ig_37_new.jpg", "ig_38_new.jpg", "ig_39_new.jpg", "ig_40_new.jpg", "ig_41_new.jpg", "ig_42_new.jpg", "ig_43_new.jpg", "ig_44_new.jpg", "ig_45_new.jpg", "ig_46_new.jpg", "ig_47_new.jpg", "ig_48_new.jpg", "ig_49_new.jpg", "ig_50_new.jpg", "ig_51_new.jpg", "ig_52_new.jpg", "ig_53_new.jpg", "ig_54_new.jpg", "ig_55_new.jpg", "ig_56_new.jpg", "ig_57_new.jpg", "ig_58_new.jpg", "ig_59_new.jpg", "ig_60_new.jpg", "ig_61_new.jpg", "ig_62_new.jpg", "ig_63_new.jpg", "ig_64_new.jpg", "ig_65_new.jpg", "ig_66_new.jpg", "ig_67_new.jpg", "ig_68_new.jpg", "ig_69_new.jpg", "ig_70_new.jpg", "ig_71_new.jpg", "ig_72_new.jpg", "ig_73_new.jpg", "ig_74_new.jpg", "ig_75_new.jpg", "ig_76_new.jpg", "ig_77_new.jpg", "ig_78_new.jpg", "ig_79_new.jpg", "ig_80_new.jpg", "ig_81_new.jpg"];
+        let currentIndex = 0;
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = '../images/instagram/' + photos[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function changeLightbox(dir) {
+            currentIndex = (currentIndex + dir + photos.length) % photos.length;
+            document.getElementById('lightbox-img').src = '../images/instagram/' + photos[currentIndex];
+        }
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') changeLightbox(1);
+            if (e.key === 'ArrowLeft') changeLightbox(-1);
+        });
     </script>
 
     <!-- Floating WhatsApp (desktop) -->
-    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 left-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Mobile Bottom Navigation (RTL) -->
+    <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[100] lg:hidden bg-white border-t border-gray-100" style="box-shadow:0 -4px 20px rgba(0,0,0,0.1)">
         <div class="flex items-end justify-around px-2 pt-2 pb-2">
             <a href="../index-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
@@ -500,13 +453,13 @@
             </a>
             <a href="products-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gold-600">
                 <i class="fas fa-birthday-cake text-xl"></i>
-                <span class="text-[10px] font-semibold">منتجاتنا</span>
+                <span class="text-[10px] font-semibold">إبداعاتنا</span>
             </a>
             <a href="https://wa.me/212671052345" target="_blank" class="mob-nav-link flex flex-col items-center gap-0.5 px-3 -mt-5">
                 <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
                     <i class="fab fa-whatsapp text-white text-2xl"></i>
                 </div>
-                <span class="text-[10px] font-semibold text-green-600 mt-1">اطلب</span>
+                <span class="text-[10px] font-semibold text-green-600 mt-1">اطلبي</span>
             </a>
             <a href="gallery-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
                 <i class="fas fa-images text-xl"></i>
