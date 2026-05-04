@@ -43,6 +43,19 @@
         @media (max-width: 768px) { .masonry { column-count: 2; } }
         @media (max-width: 480px) { .masonry { column-count: 1; } }
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        /* ===== MOBILE ENHANCEMENTS ===== */
+        @media (max-width: 1024px) {
+            body { padding-bottom: 82px !important; }
+            .card-hover:hover { transform: none !important; box-shadow: none !important; }
+            .group:hover .img-zoom { transform: scale(1) !important; }
+        }
+        .mobile-bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom, 8px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .mob-nav-link { -webkit-tap-highlight-color: transparent; }
+        .mob-nav-link:active { opacity: 0.65; }
     </style>
 </head>
 <body class="font-body bg-cream-100 text-gray-800">
@@ -102,22 +115,22 @@
     <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image with Parallax -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&q=85" alt="Pâtisserie artisanale" class="w-full h-full object-cover scale-110" style="transform: scale(1.1);">
+            <img src="Boutique image /1.jpeg" alt="Fleur d'Amande - Pâtisserie Café Rabat" class="w-full h-full object-cover scale-110" style="transform: scale(1.1);">
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         </div>
         
         <!-- Floating Pastry Images -->
         <div class="absolute top-32 left-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop" alt="Gâteau" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="Tartelettes" class="w-full h-full object-cover">
         </div>
         <div class="absolute top-48 right-16 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 0.5s;">
-            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=200&h=200&fit=crop" alt="Croissant" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_13_halawiyat.jpg" alt="Halawiyat" class="w-full h-full object-cover">
         </div>
         <div class="absolute bottom-40 left-20 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 1s;">
-            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=200&h=200&fit=crop" alt="Macarons" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_02_wedding_cake.jpg" alt="Wedding Cake" class="w-full h-full object-cover">
         </div>
         <div class="absolute bottom-32 right-24 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 1.5s;">
-            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=200&h=200&fit=crop" alt="Cornes de gazelle" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="Gâteau Anniversaire" class="w-full h-full object-cover">
         </div>
         
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -164,16 +177,16 @@
             <!-- Mini Gallery Preview -->
             <div class="flex justify-center items-center gap-2 md:gap-4">
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=100&h=100&fit=crop" alt="Gâteau" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_02_wedding_cake.jpg" alt="Wedding Cake" class="w-full h-full object-cover">
                 </div>
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=100&h=100&fit=crop" alt="Croissant" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="Tartelettes" class="w-full h-full object-cover">
                 </div>
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=100&h=100&fit=crop" alt="Macarons" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_13_halawiyat.jpg" alt="Halawiyat" class="w-full h-full object-cover">
                 </div>
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=100&h=100&fit=crop" alt="Marocain" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="Anniversaire" class="w-full h-full object-cover">
                 </div>
                 <a href="pages/gallery.html" class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gold-600/80 backdrop-blur border-2 border-gold-400 flex items-center justify-center text-white hover:bg-gold-600 transition-all hover:scale-110">
                     <div class="text-center">
@@ -264,6 +277,46 @@
         </div>
     </section>
 
+    <!-- Notre Boutique Section -->
+    <section class="py-24 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-medium tracking-widest uppercase mb-3">Notre Espace</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">La Boutique</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Un cadre élégant et chaleureux où chaque détail est soigné pour vous offrir une expérience unique.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl group h-80 md:h-96">
+                    <img src="Boutique image /3.jpeg" alt="Salle de dégustation - Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="font-display text-2xl font-bold">Salle de Dégustation</h3>
+                        <p class="text-white/80 text-sm mt-1">Un espace raffiné pour savourer nos créations</p>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl group h-80 md:h-96">
+                    <img src="Boutique image /4.jpeg" alt="Ambiance - Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="font-display text-2xl font-bold">Notre Ambiance</h3>
+                        <p class="text-white/80 text-sm mt-1">Marbre blanc, bois doré et lumières tamisées</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 relative rounded-3xl overflow-hidden shadow-2xl group h-64">
+                <img src="Boutique image /1.jpeg" alt="Façade - Fleur d'Amande Rabat" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+                <div class="absolute left-8 top-1/2 -translate-y-1/2 text-white max-w-md">
+                    <p class="text-gold-400 font-medium tracking-widest uppercase text-sm mb-2">Pâtisserie Café - Rabat</p>
+                    <h3 class="font-display text-3xl md:text-4xl font-bold mb-3">Venez Nous Rendre Visite</h3>
+                    <a href="pages/contact.html" class="inline-flex items-center gap-2 gold-gradient text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all">
+                        <i class="fas fa-map-marker-alt"></i> Nous Trouver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Signature Products Section -->
     <section class="py-24 bg-cream-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -282,7 +335,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon gold-gradient text-white">Best-Seller</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop" alt="Forêt Noire" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_02_wedding_cake.jpg" alt="Wedding Cake Fleur d'Amande" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">Commander</a>
                         </div>
@@ -307,7 +360,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon bg-pink-500 text-white">Populaire</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&h=600&fit=crop" alt="Macarons" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="Tartelettes Fleur d'Amande" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">Commander</a>
                         </div>
@@ -332,7 +385,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon bg-amber-500 text-white">Tradition</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&h=600&fit=crop" alt="Cornes de Gazelle" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_13_halawiyat.jpg" alt="Halawiyat Marocaines Fleur d'Amande" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">Commander</a>
                         </div>
@@ -357,7 +410,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon bg-green-500 text-white">Nouveau</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=600&fit=crop" alt="Croissant" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="Gâteau Anniversaire Fleur d'Amande" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">Commander</a>
                         </div>
@@ -392,46 +445,43 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=500&h=500&fit=crop" alt="Wedding Cake" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="Boutique image /1.jpeg" alt="Façade Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-medium">Wedding Cakes</span>
+                        <span class="text-white font-medium">Notre Boutique</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&h=500&fit=crop" alt="Cupcakes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="Gâteau Anniversaire" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">Cupcakes</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl row-span-2">
-                    <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=500&h=1000&fit=crop" alt="Buffet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="Boutique image /4.jpeg" alt="Intérieur Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-medium">Buffets</span>
+                        <span class="text-white font-medium">Notre Espace</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=500&fit=crop" alt="Birthday" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_11_adam_cake.jpg" alt="Gâteau Adam" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">Anniversaires</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=500&h=500&fit=crop" alt="Eclairs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_02_wedding_cake.jpg" alt="Wedding Cake" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">Éclairs</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=500&h=500&fit=crop" alt="Croissants" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="Boutique image /3.jpeg" alt="Salle Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-medium">Viennoiseries</span>
+                        <span class="text-white font-medium">Salon de Café</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&h=500&fit=crop" alt="Marocain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-medium">Pâtisseries Marocaines</span>
-                    </div>
+                    <img src="images/instagram/ig_15_halawiyat2.jpg" alt="Halawiyat Marocaines" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
             </div>
             
@@ -509,7 +559,7 @@
     <!-- CTA Section -->
     <section class="relative py-32 overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&q=80" alt="Background" class="w-full h-full object-cover">
+            <img src="Boutique image /4.jpeg" alt="Fleur d'Amande - Intérieur" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/80"></div>
         </div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
@@ -539,19 +589,19 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="aspect-square overflow-hidden rounded-xl group">
-                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=300&fit=crop" alt="Instagram" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="Boutique image /1.jpeg" alt="Façade Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </a>
                 <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="aspect-square overflow-hidden rounded-xl group">
-                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&h=300&fit=crop" alt="Instagram" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="Boutique image /3.jpeg" alt="Salle Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </a>
                 <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="aspect-square overflow-hidden rounded-xl group">
-                    <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=300&h=300&fit=crop" alt="Instagram" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="Boutique image /4.jpeg" alt="Intérieur Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </a>
                 <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="aspect-square overflow-hidden rounded-xl group">
-                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=300&h=300&fit=crop" alt="Instagram" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="Tartelettes Fleur d'Amande" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </a>
                 <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="aspect-square overflow-hidden rounded-xl group">
-                    <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=300&h=300&fit=crop" alt="Instagram" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="images/instagram/ig_13_halawiyat.jpg" alt="Halawiyat Marocaines" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </a>
                 <a href="https://www.instagram.com/fleurdamande1/" target="_blank" class="aspect-square overflow-hidden rounded-xl group bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
                     <div class="text-white text-center">
@@ -617,7 +667,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -639,5 +689,33 @@
             }
         });
     </script>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[100] lg:hidden bg-white border-t border-gray-100" style="box-shadow:0 -4px 20px rgba(0,0,0,0.1)">
+        <div class="flex items-end justify-around px-2 pt-2 pb-2">
+            <a href="index.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gold-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-[10px] font-semibold">Accueil</span>
+            </a>
+            <a href="pages/products.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-birthday-cake text-xl"></i>
+                <span class="text-[10px] font-medium">Créations</span>
+            </a>
+            <a href="https://wa.me/212671052345" target="_blank" class="mob-nav-link flex flex-col items-center gap-0.5 px-3 -mt-5">
+                <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <i class="fab fa-whatsapp text-white text-2xl"></i>
+                </div>
+                <span class="text-[10px] font-semibold text-green-600 mt-1">Commander</span>
+            </a>
+            <a href="pages/gallery.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-images text-xl"></i>
+                <span class="text-[10px] font-medium">Galerie</span>
+            </a>
+            <a href="pages/contact.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+                <span class="text-[10px] font-medium">Contact</span>
+            </a>
+        </div>
+    </nav>
 </body>
 </html>

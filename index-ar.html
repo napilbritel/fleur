@@ -35,6 +35,19 @@
         .img-zoom { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
         .group:hover .img-zoom { transform: scale(1.15); }
         .ribbon { position: absolute; top: 20px; right: -35px; transform: rotate(45deg); width: 150px; text-align: center; padding: 5px 0; font-size: 12px; font-weight: 600; }
+        /* ===== MOBILE ENHANCEMENTS ===== */
+        @media (max-width: 1024px) {
+            body { padding-bottom: 82px !important; }
+            .card-hover:hover { transform: none !important; box-shadow: none !important; }
+            .group:hover .img-zoom { transform: scale(1) !important; }
+        }
+        .mobile-bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom, 8px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .mob-nav-link { -webkit-tap-highlight-color: transparent; }
+        .mob-nav-link:active { opacity: 0.65; }
     </style>
 </head>
 <body class="bg-cream-100 text-gray-800">
@@ -94,22 +107,22 @@
     <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image with Parallax -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&q=85" alt="حلويات فاخرة" class="w-full h-full object-cover scale-110" style="transform: scale(1.1);">
+            <img src="Boutique image /1.jpeg" alt="محل فلور دماند" class="w-full h-full object-cover scale-110" style="transform: scale(1.1);">
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         </div>
         
         <!-- Floating Pastry Images -->
         <div class="absolute top-32 right-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop" alt="كيك" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_02_wedding_cake.jpg" alt="كيك زفاف" class="w-full h-full object-cover">
         </div>
         <div class="absolute top-48 left-16 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 0.5s;">
-            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=200&h=200&fit=crop" alt="كرواسون" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="تارتليت" class="w-full h-full object-cover">
         </div>
         <div class="absolute bottom-40 right-20 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 1s;">
-            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=200&h=200&fit=crop" alt="ماكرون" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_13_halawiyat.jpg" alt="حلويات مغربية" class="w-full h-full object-cover">
         </div>
         <div class="absolute bottom-32 left-24 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float opacity-80 hidden lg:block" style="animation-delay: 1.5s;">
-            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=200&h=200&fit=crop" alt="كعب الغزال" class="w-full h-full object-cover">
+            <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="كيك عيد ميلاد" class="w-full h-full object-cover">
         </div>
         
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -156,16 +169,16 @@
             <!-- Mini Gallery Preview -->
             <div class="flex justify-center items-center gap-2 md:gap-4">
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=100&h=100&fit=crop" alt="كيك" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_02_wedding_cake.jpg" alt="كيك زفاف" class="w-full h-full object-cover">
                 </div>
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=100&h=100&fit=crop" alt="كرواسون" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="تارتليت" class="w-full h-full object-cover">
                 </div>
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=100&h=100&fit=crop" alt="ماكرون" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_13_halawiyat.jpg" alt="حلويات" class="w-full h-full object-cover">
                 </div>
                 <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 border-white/30 hover:border-gold-400 transition-all hover:scale-110 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=100&h=100&fit=crop" alt="مغربي" class="w-full h-full object-cover">
+                    <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="عيد ميلاد" class="w-full h-full object-cover">
                 </div>
                 <a href="pages/gallery-ar.html" class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gold-600/80 backdrop-blur border-2 border-gold-400 flex items-center justify-center text-white hover:bg-gold-600 transition-all hover:scale-110">
                     <div class="text-center">
@@ -274,7 +287,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon gold-gradient text-white">الأكثر مبيعاً</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop" alt="فوريه نوار" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_02_wedding_cake.jpg" alt="كيك زفاف فلور دماند" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
                         </div>
@@ -299,7 +312,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon bg-pink-500 text-white">مشهور</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&h=600&fit=crop" alt="ماكرون" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="تارتليت فلور دماند" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
                         </div>
@@ -324,7 +337,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon bg-amber-500 text-white">تقليدي</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&h=600&fit=crop" alt="كعب الغزال" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_13_halawiyat.jpg" alt="حلويات مغربية" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
                         </div>
@@ -349,7 +362,7 @@
                 <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl group relative">
                     <div class="ribbon bg-green-500 text-white">جديد</div>
                     <div class="relative h-72 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=600&fit=crop" alt="كرواسون" class="w-full h-full object-cover img-zoom">
+                        <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="كيك عيد ميلاد" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <a href="pages/products-ar.html" class="w-full text-center bg-white text-gold-600 py-3 rounded-full font-semibold hover:bg-gold-600 hover:text-white transition-all">اطلب الآن</a>
                         </div>
@@ -384,43 +397,43 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=500&h=500&fit=crop" alt="كيك زفاف" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_03_wedding_flowers.jpg" alt="كيك زفاف" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">كيك الزفاف</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&h=500&fit=crop" alt="كب كيك" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_11_adam_cake.jpg" alt="كيك آدم" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">كب كيك</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl row-span-2">
-                    <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=500&h=1000&fit=crop" alt="بوفيه" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="Boutique image /4.jpeg" alt="أجواء فلور دماند" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">بوفيهات</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=500&fit=crop" alt="عيد ميلاد" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_07_birthday_yasmine.jpg" alt="عيد ميلاد" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">أعياد الميلاد</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=500&h=500&fit=crop" alt="إكلير" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_05_tarts_eclairs.jpg" alt="تارتليت" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-medium">إكلير</span>
+                        <span class="text-white font-medium">تارتليت</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=500&h=500&fit=crop" alt="كرواسون" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="Boutique image /3.jpeg" alt="صالون فلور دماند" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">المعجنات</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-2xl aspect-square">
-                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=500&h=500&fit=crop" alt="مغربي" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="images/instagram/ig_13_halawiyat.jpg" alt="حلويات مغربية" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-medium">حلويات مغربية</span>
                     </div>
@@ -501,7 +514,7 @@
     <!-- CTA Section -->
     <section class="relative py-32 overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&q=80" alt="خلفية" class="w-full h-full object-cover">
+            <img src="Boutique image /4.jpeg" alt="أجواء فلور دماند" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/80"></div>
         </div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
@@ -575,7 +588,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 left-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 left-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -597,5 +610,33 @@
             }
         });
     </script>
+
+    <!-- Mobile Bottom Navigation (RTL) -->
+    <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[100] lg:hidden bg-white border-t border-gray-100" style="box-shadow:0 -4px 20px rgba(0,0,0,0.1)">
+        <div class="flex items-end justify-around px-2 pt-2 pb-2">
+            <a href="index-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gold-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-[10px] font-semibold">الرئيسية</span>
+            </a>
+            <a href="pages/products-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-birthday-cake text-xl"></i>
+                <span class="text-[10px] font-medium">منتجاتنا</span>
+            </a>
+            <a href="https://wa.me/212671052345" target="_blank" class="mob-nav-link flex flex-col items-center gap-0.5 px-3 -mt-5">
+                <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <i class="fab fa-whatsapp text-white text-2xl"></i>
+                </div>
+                <span class="text-[10px] font-semibold text-green-600 mt-1">اطلب</span>
+            </a>
+            <a href="pages/gallery-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-images text-xl"></i>
+                <span class="text-[10px] font-medium">المعرض</span>
+            </a>
+            <a href="pages/contact-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+                <span class="text-[10px] font-medium">تواصل</span>
+            </a>
+        </div>
+    </nav>
 </body>
 </html>

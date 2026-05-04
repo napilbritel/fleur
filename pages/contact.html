@@ -27,6 +27,19 @@
         html { scroll-behavior: smooth; }
         .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
         .line-decoration::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #B8860B, transparent); }
+        /* ===== MOBILE ENHANCEMENTS ===== */
+        @media (max-width: 1024px) {
+            body { padding-bottom: 82px !important; }
+            .card-hover:hover { transform: none !important; box-shadow: none !important; }
+            .group:hover .img-zoom { transform: scale(1) !important; }
+        }
+        .mobile-bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom, 8px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .mob-nav-link { -webkit-tap-highlight-color: transparent; }
+        .mob-nav-link:active { opacity: 0.65; }
     </style>
 </head>
 <body class="font-body bg-cream-100 text-gray-800">
@@ -278,5 +291,38 @@
             setTimeout(() => successMsg.remove(), 5000);
         });
     </script>
+
+    <!-- Floating WhatsApp (desktop) -->
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[100] lg:hidden bg-white border-t border-gray-100" style="box-shadow:0 -4px 20px rgba(0,0,0,0.1)">
+        <div class="flex items-end justify-around px-2 pt-2 pb-2">
+            <a href="../index.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-[10px] font-medium">Accueil</span>
+            </a>
+            <a href="products.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-birthday-cake text-xl"></i>
+                <span class="text-[10px] font-medium">Créations</span>
+            </a>
+            <a href="https://wa.me/212671052345" target="_blank" class="mob-nav-link flex flex-col items-center gap-0.5 px-3 -mt-5">
+                <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <i class="fab fa-whatsapp text-white text-2xl"></i>
+                </div>
+                <span class="text-[10px] font-semibold text-green-600 mt-1">Commander</span>
+            </a>
+            <a href="gallery.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-images text-xl"></i>
+                <span class="text-[10px] font-medium">Galerie</span>
+            </a>
+            <a href="contact.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gold-600">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+                <span class="text-[10px] font-semibold">Contact</span>
+            </a>
+        </div>
+    </nav>
 </body>
 </html>

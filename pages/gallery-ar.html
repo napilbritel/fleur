@@ -22,6 +22,19 @@
         .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 0; pointer-events: none; transition: 0.3s; }
         .lightbox.active { opacity: 1; pointer-events: all; }
         .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; }
+        /* ===== MOBILE ENHANCEMENTS ===== */
+        @media (max-width: 1024px) {
+            body { padding-bottom: 82px !important; }
+            .card-hover:hover { transform: none !important; box-shadow: none !important; }
+            .group:hover .img-zoom { transform: scale(1) !important; }
+        }
+        .mobile-bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom, 8px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .mob-nav-link { -webkit-tap-highlight-color: transparent; }
+        .mob-nav-link:active { opacity: 0.65; }
     </style>
 </head>
 <body class="font-arabic bg-cream-100 text-gray-800">
@@ -83,40 +96,75 @@
         <div class="max-w-7xl mx-auto px-4">
             <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=500&fit=crop" alt="كيك" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_02_wedding_cake.jpg" alt="كيك زفاف أنيق" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="pastries">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&h=500&fit=crop" alt="كرواسون" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../Boutique image /3.jpeg" alt="صالون التذوق" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="sweets">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500&h=500&fit=crop" alt="ماكرون" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_05_tarts_eclairs.jpg" alt="تارت بالفواكه" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=500&fit=crop" alt="كيك مناسبات" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_11_adam_cake.jpg" alt="كيك عيد ميلاد آدم" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1535141192574-5d4897c12f4f?w=500&h=500&fit=crop" alt="تشيز كيك" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_07_birthday_yasmine.jpg" alt="كيك ياسمين" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="pastries">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=500&fit=crop" alt="خبز" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../Boutique image /1.jpeg" alt="واجهة المحل" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
-                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="sweets">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=500&h=500&fit=crop" alt="إكلير" class="w-full h-full object-cover transition-transform duration-500"></div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="moroccan">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_13_halawiyat.jpg" alt="حلويات مغربية" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=500&h=500&fit=crop" alt="كيك زفاف" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_03_wedding_flowers.jpg" alt="كيك زفاف بالأزهار" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
-                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="sweets">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&h=500&fit=crop" alt="تارت" class="w-full h-full object-cover transition-transform duration-500"></div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="moroccan">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_15_halawiyat2.jpg" alt="حلويات شرقية" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="pastries">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=500&h=500&fit=crop" alt="بان أو شوكولا" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../Boutique image /4.jpeg" alt="أجواء المحل" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&h=500&fit=crop" alt="كيك فراولة" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_08_pharmacy_cake.jpg" alt="كيك مخصص" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
                 <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
-                    <div class="relative aspect-square overflow-hidden"><img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=500&h=500&fit=crop" alt="بوفيه" class="w-full h-full object-cover transition-transform duration-500"></div>
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_04_bride_zineb.jpg" alt="كيك عروس" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+
+                <!-- صور جديدة -->
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="moroccan">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_18_new.jpg" alt="كيك لوز مغربي" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_60_new.jpg" alt="كيك حصان آية" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_22_new.jpg" alt="كيك كرة القدم المغرب" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="moroccan">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_52_new.jpg" alt="مهنشة باللوز" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_43_new.jpg" alt="كيك ذكرى سنوية" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="events">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_30_new.jpg" alt="كيك هاري بوتر" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_17_new.jpg" alt="كيك بالماكارون" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="moroccan">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_36_new.jpg" alt="حلوى مغربية فلور دامند" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_64_new.jpg" alt="كيك أول عيد ميلاد" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_79_new.jpg" alt="كيك سبايدرمان" class="w-full h-full object-cover transition-transform duration-500"></div>
+                </div>
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer" data-category="cakes">
+                    <div class="relative aspect-square overflow-hidden"><img src="../images/instagram/ig_19_new.jpg" alt="كيك ميني ماوس" class="w-full h-full object-cover transition-transform duration-500"></div>
                 </div>
             </div>
         </div>
@@ -203,5 +251,38 @@
         });
         lightbox.addEventListener('click', function(e) { if (e.target === lightbox || e.target.tagName === 'BUTTON') { lightbox.classList.remove('active'); document.body.style.overflow = ''; } });
     </script>
+
+    <!-- Floating WhatsApp (desktop) -->
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 left-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Mobile Bottom Navigation (RTL) -->
+    <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[100] lg:hidden bg-white border-t border-gray-100" style="box-shadow:0 -4px 20px rgba(0,0,0,0.1)">
+        <div class="flex items-end justify-around px-2 pt-2 pb-2">
+            <a href="../index-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-[10px] font-medium">الرئيسية</span>
+            </a>
+            <a href="products-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-birthday-cake text-xl"></i>
+                <span class="text-[10px] font-medium">منتجاتنا</span>
+            </a>
+            <a href="https://wa.me/212671052345" target="_blank" class="mob-nav-link flex flex-col items-center gap-0.5 px-3 -mt-5">
+                <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <i class="fab fa-whatsapp text-white text-2xl"></i>
+                </div>
+                <span class="text-[10px] font-semibold text-green-600 mt-1">اطلب</span>
+            </a>
+            <a href="gallery-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gold-600">
+                <i class="fas fa-images text-xl"></i>
+                <span class="text-[10px] font-semibold">المعرض</span>
+            </a>
+            <a href="contact-ar.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+                <span class="text-[10px] font-medium">تواصل</span>
+            </a>
+        </div>
+    </nav>
 </body>
 </html>

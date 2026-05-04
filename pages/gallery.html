@@ -38,6 +38,19 @@
         @media (max-width: 1024px) { .masonry { column-count: 2; } }
         @media (max-width: 640px) { .masonry { column-count: 1; } }
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        /* ===== MOBILE ENHANCEMENTS ===== */
+        @media (max-width: 1024px) {
+            body { padding-bottom: 82px !important; }
+            .card-hover:hover { transform: none !important; box-shadow: none !important; }
+            .group:hover .img-zoom { transform: scale(1) !important; }
+        }
+        .mobile-bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom, 8px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .mob-nav-link { -webkit-tap-highlight-color: transparent; }
+        .mob-nav-link:active { opacity: 0.65; }
     </style>
 </head>
 <body class="font-body bg-cream-100 text-gray-800">
@@ -77,7 +90,7 @@
     <!-- Hero Header -->
     <header class="relative pt-20 min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-        <div class="absolute inset-0 opacity-30" style="background-image: url('https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1920&h=800&fit=crop'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0 opacity-40" style="background-image: url('../Boutique image /4.jpeg'); background-size: cover; background-position: center;"></div>
         <div class="relative z-10 text-center px-4 py-20">
             <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/30 rounded-full px-6 py-2 mb-6">
                 <i class="fas fa-images text-gold-400"></i>
@@ -145,49 +158,250 @@
                 <!-- Row 1 -->
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop" alt="Gâteau Chocolat" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_02_wedding_cake.jpg" alt="Wedding Cake Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Forêt Noire</span>
-                            <span class="text-gold-400 text-sm">Gâteau Signature</span>
+                            <span class="text-white font-semibold text-lg">Wedding Cake L&L</span>
+                            <span class="text-gold-400 text-sm">Gâteau de Mariage</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop" alt="Croissants" class="w-full object-cover transition-transform duration-700">
+                        <img src="../Boutique image /3.jpeg" alt="Salon de Dégustation" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Croissants Frais</span>
-                            <span class="text-gold-400 text-sm">Du jour</span>
+                            <span class="text-white font-semibold text-lg">Notre Salon</span>
+                            <span class="text-gold-400 text-sm">Espace Dégustation</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=600&h=900&fit=crop" alt="Wedding Cake" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_03_wedding_flowers.jpg" alt="Wedding Cake Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Wedding Cake Élégant</span>
-                            <span class="text-gold-400 text-sm">Mariage 2024</span>
+                            <span class="text-white font-semibold text-lg">Wedding Cake Floral</span>
+                            <span class="text-gold-400 text-sm">Mariage</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&h=600&fit=crop" alt="Macarons" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_05_tarts_eclairs.jpg" alt="Tartelettes Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Macarons Assortis</span>
-                            <span class="text-gold-400 text-sm">6 Parfums</span>
+                            <span class="text-white font-semibold text-lg">Plateau de Tartelettes</span>
+                            <span class="text-gold-400 text-sm">Fruits Frais</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&h=500&fit=crop" alt="Cornes de Gazelle" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_13_halawiyat.jpg" alt="Halawiyat Marocaines" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Cornes de Gazelle</span>
+                            <span class="text-white font-semibold text-lg">Halawiyat Marocaines</span>
+                            <span class="text-gold-400 text-sm">Tradition Authentique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_07_birthday_yasmine.jpg" alt="Gâteau Anniversaire" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Gâteau Yasmine</span>
+                            <span class="text-gold-400 text-sm">Anniversaire Personnalisé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_11_adam_cake.jpg" alt="Gâteau Adam" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Gâteau Adam</span>
+                            <span class="text-gold-400 text-sm">Thème Enfants</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
+                    <div class="relative overflow-hidden">
+                        <img src="../Boutique image /1.jpeg" alt="Façade Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Notre Boutique</span>
+                            <span class="text-gold-400 text-sm">Fleur d'Amande Rabat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_04_bride_zineb.jpg" alt="Gâteau BRIDE TO BE" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Bride To Be</span>
+                            <span class="text-gold-400 text-sm">Gâteau EVJF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_15_halawiyat2.jpg" alt="Halawiyat Marocaines" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Assortiment Oriental</span>
+                            <span class="text-gold-400 text-sm">Pâtisseries Marocaines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_06_wedding_cake3.jpg" alt="Wedding Cake" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Wedding Cake Roses</span>
+                            <span class="text-gold-400 text-sm">Mariage Sur Mesure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_08_pharmacy_cake.jpg" alt="Gâteau Personnalisé" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Création Personnalisée</span>
+                            <span class="text-gold-400 text-sm">Gâteau Sur Mesure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_14_plateau.jpg" alt="Plateau Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Plateau Prestige</span>
+                            <span class="text-gold-400 text-sm">Coffret Cadeau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
+                    <div class="relative overflow-hidden">
+                        <img src="../Boutique image /4.jpeg" alt="Ambiance Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Notre Ambiance</span>
+                            <span class="text-gold-400 text-sm">Espace Chaleureux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_08_pharmacy_cake.jpg" alt="Gâteau Personnalisé" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Création Personnalisée</span>
+                            <span class="text-gold-400 text-sm">Gâteau Thématique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_01_cake_spider.jpg" alt="Gâteau Décoratif" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Création Unique</span>
+                            <span class="text-gold-400 text-sm">Gâteau Artistique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_09_cafe.jpg" alt="Café Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Notre Café</span>
+                            <span class="text-gold-400 text-sm">Espace Détente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_05_tarts_eclairs.jpg" alt="Tartelettes" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Box Tartelettes</span>
+                            <span class="text-gold-400 text-sm">Assortiment Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_14_plateau.jpg" alt="Plateau Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Plateau Prestige</span>
+                            <span class="text-gold-400 text-sm">Coffret Cadeau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_10_medical_cake.jpg" alt="Gâteau Personnalisé" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Thème Médecin</span>
+                            <span class="text-gold-400 text-sm">Gâteau Sur Mesure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
+                    <div class="relative overflow-hidden">
+                        <img src="../Boutique image /1.jpeg" alt="Notre Boutique" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Façade Boutique</span>
+                            <span class="text-gold-400 text-sm">Fleur d'Amande Rabat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_04_bride_zineb.jpg" alt="Bride To Be" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Bride To Be</span>
+                            <span class="text-gold-400 text-sm">EVJF Spécial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_13_halawiyat.jpg" alt="Halawiyat" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Box Halawiyat</span>
+                            <span class="text-gold-400 text-sm">Coffret Prémium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_15_halawiyat2.jpg" alt="Pâtisseries Marocaines" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Pâtisseries Orientales</span>
+                            <span class="text-gold-400 text-sm">Assortiment Tradition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New photos from Instagram -->
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
+                    <div class="relative overflow-hidden">
+                        <img src="../images/instagram/ig_18_new.jpg" alt="Gâteau Marocain" class="w-full object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
+                            <span class="text-white font-semibold text-lg">Gâteau aux Amandes</span>
                             <span class="text-gold-400 text-sm">Tradition Marocaine</span>
                         </div>
                     </div>
@@ -195,190 +409,110 @@
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=700&fit=crop" alt="Fraisier" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_60_new.jpg" alt="Gâteau Cheval AYA" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Fraisier</span>
-                            <span class="text-gold-400 text-sm">Fraises fraîches</span>
+                            <span class="text-white font-semibold text-lg">Gâteau Cheval</span>
+                            <span class="text-gold-400 text-sm">Sculpture en Sucre</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&h=600&fit=crop" alt="Gâteau Anniversaire" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_22_new.jpg" alt="Gâteau Football Maroc" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Gâteau d'Anniversaire</span>
-                            <span class="text-gold-400 text-sm">Personnalisé</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=400&fit=crop" alt="Pain au chocolat" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Pain au Chocolat</span>
-                            <span class="text-gold-400 text-sm">Pur Beurre</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&h=500&fit=crop" alt="Éclairs" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Éclairs Chocolat</span>
-                            <span class="text-gold-400 text-sm">Classique Français</span>
+                            <span class="text-white font-semibold text-lg">Lions de l'Atlas</span>
+                            <span class="text-gold-400 text-sm">Création Unique</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=600&h=600&fit=crop" alt="Chebakia" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_52_new.jpg" alt="M'hanncha" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Chebakia</span>
-                            <span class="text-gold-400 text-sm">Spécial Ramadan</span>
+                            <span class="text-white font-semibold text-lg">M'hanncha aux Amandes</span>
+                            <span class="text-gold-400 text-sm">Recette Traditionnelle</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12f4f?w=600&h=600&fit=crop" alt="Cheesecake" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_43_new.jpg" alt="Gâteau Anniversaire Cheval" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Cheesecake New York</span>
-                            <span class="text-gold-400 text-sm">Onctueux</span>
+                            <span class="text-white font-semibold text-lg">Gâteau Fado</span>
+                            <span class="text-gold-400 text-sm">Anniversaire Thématique</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=600&h=800&fit=crop" alt="Buffet" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_30_new.jpg" alt="Gâteau Harry Potter" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Buffet Desserts</span>
-                            <span class="text-gold-400 text-sm">Réception</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=500&fit=crop" alt="Tartelette" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Tartelette Fruits</span>
-                            <span class="text-gold-400 text-sm">Fruits de saison</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=600&h=600&fit=crop" alt="Croissant amandes" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Croissant aux Amandes</span>
-                            <span class="text-gold-400 text-sm">Signature</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600&h=450&fit=crop" alt="Briouates" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Briouates</span>
-                            <span class="text-gold-400 text-sm">Miel & Amandes</span>
+                            <span class="text-white font-semibold text-lg">Magie du Sucre</span>
+                            <span class="text-gold-400 text-sm">Gâteau Thématique</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&h=500&fit=crop" alt="Tiramisu" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_17_new.jpg" alt="Gâteau Anniversaire Macarons" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Tiramisu</span>
-                            <span class="text-gold-400 text-sm">Italien Authentique</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&h=600&fit=crop" alt="Cupcakes" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Cupcakes Décorés</span>
-                            <span class="text-gold-400 text-sm">Baby Shower</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=600&h=500&fit=crop" alt="Mille-feuille" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Mille-feuille</span>
-                            <span class="text-gold-400 text-sm">Vanille Bourbon</span>
+                            <span class="text-white font-semibold text-lg">Gâteau Macarons</span>
+                            <span class="text-gold-400 text-sm">Élégance Florale</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558312657-b2dead03d494?w=600&h=600&fit=crop" alt="Ghriba" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_36_new.jpg" alt="Gâteau Marocain Fleur d'Amande" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Ghriba</span>
-                            <span class="text-gold-400 text-sm">Sésame & Amandes</span>
+                            <span class="text-white font-semibold text-lg">Spécialité Marocaine</span>
+                            <span class="text-gold-400 text-sm">Fleur d'Amande</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=700&fit=crop" alt="Opera" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_64_new.jpg" alt="Gâteau 1er Anniversaire" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Opéra</span>
-                            <span class="text-gold-400 text-sm">Café & Chocolat</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="pastries">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1619221882220-947b3d3c8861?w=600&h=450&fit=crop" alt="Pain aux raisins" class="w-full object-cover transition-transform duration-700">
-                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Pain aux Raisins</span>
-                            <span class="text-gold-400 text-sm">Crème pâtissière</span>
+                            <span class="text-white font-semibold text-lg">Premier Anniversaire</span>
+                            <span class="text-gold-400 text-sm">Ourson & Lune</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="events">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=600&h=600&fit=crop" alt="Paris-Brest" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_59_new.jpg" alt="Gâteau Anniversaire Coeurs" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Paris-Brest Géant</span>
-                            <span class="text-gold-400 text-sm">Événement Spécial</span>
+                            <span class="text-white font-semibold text-lg">Gâteau Cœurs</span>
+                            <span class="text-gold-400 text-sm">Joyeux Anniversaire</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="sweets">
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&h=500&fit=crop" alt="Fondant" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_79_new.jpg" alt="Gâteau Spiderman" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Fondant au Chocolat</span>
-                            <span class="text-gold-400 text-sm">Cœur Coulant</span>
+                            <span class="text-white font-semibold text-lg">Gâteau Spiderman</span>
+                            <span class="text-gold-400 text-sm">Super Héros</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="moroccan">
+                <div class="gallery-item masonry-item rounded-2xl overflow-hidden shadow-lg cursor-pointer group" data-category="cakes">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=600&h=600&fit=crop" alt="Baklava" class="w-full object-cover transition-transform duration-700">
+                        <img src="../images/instagram/ig_19_new.jpg" alt="Gâteau Minnie Mouse" class="w-full object-cover transition-transform duration-700">
                         <div class="overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 flex flex-col justify-end p-6">
-                            <span class="text-white font-semibold text-lg">Baklava</span>
-                            <span class="text-gold-400 text-sm">Miel & Pistaches</span>
+                            <span class="text-white font-semibold text-lg">Gâteau Minnie</span>
+                            <span class="text-gold-400 text-sm">Anniversaire Enfants</span>
                         </div>
                     </div>
                 </div>
@@ -457,7 +591,7 @@
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
+    <a href="https://wa.me/212671052345" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full hidden lg:flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -551,5 +685,33 @@
             if (e.key === 'Escape') lightbox.click();
         });
     </script>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[100] lg:hidden bg-white border-t border-gray-100" style="box-shadow:0 -4px 20px rgba(0,0,0,0.1)">
+        <div class="flex items-end justify-around px-2 pt-2 pb-2">
+            <a href="../index.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-[10px] font-medium">Accueil</span>
+            </a>
+            <a href="products.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-birthday-cake text-xl"></i>
+                <span class="text-[10px] font-medium">Créations</span>
+            </a>
+            <a href="https://wa.me/212671052345" target="_blank" class="mob-nav-link flex flex-col items-center gap-0.5 px-3 -mt-5">
+                <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <i class="fab fa-whatsapp text-white text-2xl"></i>
+                </div>
+                <span class="text-[10px] font-semibold text-green-600 mt-1">Commander</span>
+            </a>
+            <a href="gallery.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gold-600">
+                <i class="fas fa-images text-xl"></i>
+                <span class="text-[10px] font-semibold">Galerie</span>
+            </a>
+            <a href="contact.html" class="mob-nav-link flex flex-col items-center gap-0.5 py-1 px-3 text-gray-400">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+                <span class="text-[10px] font-medium">Contact</span>
+            </a>
+        </div>
+    </nav>
 </body>
 </html>
