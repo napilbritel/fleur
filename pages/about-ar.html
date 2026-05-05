@@ -43,9 +43,22 @@
         }
         .mob-nav-link { -webkit-tap-highlight-color: transparent; }
         .mob-nav-link:active { opacity: 0.65; }
+        /* ===== FULL MOBILE RESPONSIVE ===== */
+        @media (max-width: 767px) {
+            .py-24 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+            .py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+            .pt-32 { padding-top: 5rem !important; }
+            a.rounded-full, button.rounded-full { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+            a.rounded-full.py-5, button.rounded-full.py-5 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+            .text-5xl { font-size: 2.25rem !important; line-height: 1.15 !important; }
+            .text-4xl { font-size: 1.75rem !important; }
+            .mb-16 { margin-bottom: 2rem !important; }
+            .p-8 { padding: 1.25rem !important; }
+            .gap-12 { gap: 1.5rem !important; }
+        }
     </style>
 </head>
-<body class="font-arabic bg-cream-100 text-gray-800">
+<body class="font-arabic bg-cream-100 text-gray-800 overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
